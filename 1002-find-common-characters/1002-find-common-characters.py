@@ -13,7 +13,6 @@ class Solution:
                 common[index] = min(common[index], curr_count[index])
         
         common_chars = []
-        print(common)
 
         for index, freq in enumerate(common):
             if freq:
@@ -21,6 +20,14 @@ class Solution:
                     common_chars.append(chr(offset + index))
                 
         return common_chars
+    
+    
+# We use a common list to count the chars by mapping their ascii value to common's
+# index by subtracting ascii value of 'a' from their ascii value. Then we will
+# count the char frequency of the first word. Since common letters are necesarily
+# found in the first word, we will do the same for the rest of the words and take 
+# the min freq. Finaly we will append the real chars by reverse mapping the indexes
+# to ascii values and undoing the offset.
         
         
         
