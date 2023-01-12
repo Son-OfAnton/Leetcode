@@ -11,3 +11,8 @@ class Solution:
                     break
                     
         return count
+    
+    
+# We iterate column wise and compare the lexiographic order of vertically
+# adjacent chars. If we find lexiographically unordered chars we increment 
+# count and immediately go to the next column.
