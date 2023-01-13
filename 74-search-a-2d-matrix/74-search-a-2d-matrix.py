@@ -16,10 +16,13 @@ class Solution:
         return False
     
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        spread_matrix = []
+        res = False
         
         for row in matrix:
-            for num in row:
-                spread_matrix.append(num)
+            res = self.binarySearch(row, target)
+            if res:
+                return res
         
-        return self.binarySearch(spread_matrix, target)
+        return res
+            
+    
