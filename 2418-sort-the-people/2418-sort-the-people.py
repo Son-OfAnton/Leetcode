@@ -1,6 +1,25 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         n = len(names)
+        
+        for index in range(n):
+            max_index = index
+            
+            for index_2 in range(index+1, n):
+                if heights[index_2] > heights[max_index]:
+                    max_index = index_2
+            
+            heights[index], heights[max_index] = heights[max_index], heights[index]
+            names[index], names[max_index] = names[max_index], names[index]
+        
+        return names
+        
+"""
+Bubble sort
+
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        n = len(names)
         m = n
         
         for passes in range(n):
@@ -16,4 +35,4 @@ class Solution:
                 break
                     
         return names
-        
+        """
