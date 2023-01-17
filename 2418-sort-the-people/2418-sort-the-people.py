@@ -2,6 +2,30 @@ class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         n = len(names)
         
+        for index in range(1,n):
+            j = index - 1
+            curr_height = heights[index]
+            curr_name = names[index]
+            
+            while j >= 0 and heights[j] < curr_height:
+                heights[j], heights[j+1] = heights[j+1], heights[j]
+                names[j], names[j+1] = names[j+1], names[j]
+                
+                j -= 1
+            
+            heights[j+1] = curr_height
+            names[j+1] = curr_name
+                
+        return names
+        
+        
+"""
+Selection sort
+
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        n = len(names)
+        
         for index in range(n-1):
             max_index = index
             
@@ -13,6 +37,9 @@ class Solution:
             names[index], names[max_index] = names[max_index], names[index]
         
         return names
+        
+"""
+        
         
 """
 Bubble sort
