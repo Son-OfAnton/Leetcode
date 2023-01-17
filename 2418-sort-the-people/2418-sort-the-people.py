@@ -2,7 +2,7 @@ class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         n = len(names)
         
-        for index in range(n):
+        for index in range(n-1):
             max_index = index
             
             for index_2 in range(index+1, n):
