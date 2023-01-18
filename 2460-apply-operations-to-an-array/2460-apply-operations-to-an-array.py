@@ -10,7 +10,7 @@ class Solution:
         left = 0
         right = 0
         
-        while right < n and left < n:
+        while right < n:
             if nums[right] != 0:
                 nums[left], nums[right] = nums[right], nums[left]
                 left += 1
