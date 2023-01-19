@@ -13,7 +13,6 @@ class Solution:
         for right in range(arr_size - 1, 0, -1):            
             if arr[right] >= arr[right - 1]:
                 break
-            
                 
         if left != right:
             return False
