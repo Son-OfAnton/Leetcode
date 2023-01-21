@@ -3,7 +3,8 @@ class Solution:
         n = len(nums)
         
         for i in range(n):
-            nums.append(int((str(nums[i]))[::-1]))
+            str_num = str(nums[i])
+            nums.append(int(str_num[::-1]))
             
         return len(set(nums))
             
