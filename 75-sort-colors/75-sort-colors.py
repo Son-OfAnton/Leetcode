@@ -17,3 +17,6 @@ class Solution:
                 
         for i in range(len(res)):
             nums[i] = res[i]
+            
+# I could use plain old comparision algorithms of O(n^2) 
+# time complexity and I used counting sort to spice things up.
