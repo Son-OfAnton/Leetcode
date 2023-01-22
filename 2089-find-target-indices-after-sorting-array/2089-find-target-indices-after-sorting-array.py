@@ -1,3 +1,4 @@
+# Time - O(n)   Space - O(n)
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         lookup = [0] * 101
@@ -15,3 +16,21 @@ class Solution:
             res.append(target_index + freq)
             
         return res
+    
+"""
+Time - O(nlogn) Space - O(n)
+
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        res = []
+        nums.sort()
+
+        for i in range(n):
+            if nums[i] == target:
+                res.append(i)
+
+        return res
+
+
+"""
