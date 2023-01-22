@@ -4,7 +4,7 @@ class Solution:
         
         if x < 0:
             is_neg = True
-            x = -1 * x
+            x = -x
             
         res = 0
         power = -1
