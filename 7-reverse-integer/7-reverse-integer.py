@@ -19,7 +19,7 @@ class Solution:
             x //= 10
             power -= 1
         
-        if abs(res) > 2**31:
+        if abs(res) >= 2**31:
             return 0
         if is_neg:
             return -res
