@@ -11,5 +11,4 @@ class Solution:
                 nums[holder], nums[seeker] = nums[seeker], nums[holder]
                 holder += 1
             
-     
             seeker += 1
