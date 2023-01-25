@@ -13,3 +13,6 @@ class Solution:
             bob += 1
             
         return total
+    
+# Me and alice will take the max coins greedly, alice being the most greedy
+# and me after her. We will give bob the least coins possible.
