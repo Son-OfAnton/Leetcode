@@ -16,3 +16,17 @@ class Solution:
             else:
                 nums1[spot] = nums1[ptr_1]
                 ptr_1 -= 1
+                
+# The following cases are possible:
+#     - If ptr_2 < 0, this means we have finished merging so we can break
+    
+#     - if ptr_1 < 0 this means either we have finished placing nums1
+#       elements in the merged one. This means the remaining nums2 elements are
+#       all smaller than the smallest element in nums1, so we just insert the 
+#       remaining nums2 elements.
+    
+#     - if nums1[ptr_1] < nums2[ptr_2], since nums2[ptr_2] is the largest it should
+#       be at the back of nums1[ptr_1]
+        
+#     - if nums1[ptr_1] > nums2[ptr_2], since nums1[ptr_1] is the largest it 
+#       should be at the back of nums2[ptr_2]
