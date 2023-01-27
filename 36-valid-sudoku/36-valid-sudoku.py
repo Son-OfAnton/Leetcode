@@ -1,3 +1,5 @@
+# Time - O(81)
+# Space - (90 + 90 + 90)
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         rx_elements = defaultdict(set)
@@ -22,10 +24,10 @@ class Solution:
         
 
 
-
-
-
 """
+Time - O(81 + 729 + 162) == O(1)
+Space - O(81 + 81 + 9 + 81) == O(1)
+
 class Solution:
     def is_valid(self, arr):
         arr = [char for char in arr if char != '.']
