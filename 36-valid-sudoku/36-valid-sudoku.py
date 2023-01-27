@@ -1,5 +1,5 @@
-# Time - O(81)
-# Space - (90 + 90 + 90)
+# Time - O(81) == O(1)
+# Space - (90 + 90 + 90) == O(1)
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         rx_elements = defaultdict(set)
