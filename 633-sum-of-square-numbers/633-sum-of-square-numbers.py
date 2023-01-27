@@ -16,4 +16,7 @@ class Solution:
                 
         return False
                 
+        
+# We use the fact that largest number that a or b could be is 
+# sqrt of c so we only need to check the range [0, sqrt(c)]
             
