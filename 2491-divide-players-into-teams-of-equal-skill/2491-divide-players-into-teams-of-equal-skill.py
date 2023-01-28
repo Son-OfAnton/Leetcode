@@ -7,11 +7,8 @@ class Solution:
         teams = []
         
         while left < right:
-            if left == 0:
-                summ = skill[left] + skill[right]
-            else:
-                if summ != skill[left] + skill[right]:
-                    return -1
+            if summ != skill[left] + skill[right]:
+                return -1
                 
             teams.append([skill[left], skill[right]])
             left += 1
