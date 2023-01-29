@@ -22,7 +22,8 @@ class Solution:
         head.next = None
                 
         return curr
-    
+   
+# Time - O(n)   Space - O(1)
 # We place two ptrs curr and dummy on head. In case of 0 or 1 node
 # return the head. Else we shift the dummy to the 2nd node and start
 # iterating on the list. 
@@ -38,6 +39,23 @@ class Solution:
 # traverse in reverse order.
 
 
+
+"""
+Recursive solution
+Time - O(n)     Space - O(1)
+
+class Solution:
+    def reverseList(self, node, prev=None):
+        if node == None:
+            return prev
+        else:
+            next = node.next
+            node.next = prev
+            
+            return self.reverseList(next, prev=node)
+
+
+"""
             
         
             
