@@ -14,10 +14,10 @@ class Solution:
         dummy = dummy.next
         
         while dummy:
-            dummy_next = dummy.next
+            temp = dummy.next
             dummy.next = curr
             curr = dummy
-            dummy = dummy_next
+            dummy = temp
             
         head.next = None
         head = curr
