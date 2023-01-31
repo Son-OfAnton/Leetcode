@@ -1,18 +1,18 @@
 class Solution:
     def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
-        def isMagicSquare(matrix: List[List[int]]) -> bool:
-            # check if the 3x3 matrix is a magic square
-            s = sum(matrix[0])
-            if (s != sum(matrix[1]) or
-                s != sum(matrix[2]) or
-                s != matrix[0][0] + matrix[1][1] + matrix[2][2] or
-                s != matrix[0][2] + matrix[1][1] + matrix[2][0]):
-                return False
-            for i in range(3):
-                if (s != matrix[i][0] + matrix[i][1] + matrix[i][2] or
-                    s != matrix[0][i] + matrix[1][i] + matrix[2][i]):
-                    return False
-            return True
+        # def isMagicSquare(matrix: List[List[int]]) -> bool:
+        #     # check if the 3x3 matrix is a magic square
+        #     s = sum(matrix[0])
+        #     if (s != sum(matrix[1]) or
+        #         s != sum(matrix[2]) or
+        #         s != matrix[0][0] + matrix[1][1] + matrix[2][2] or
+        #         s != matrix[0][2] + matrix[1][1] + matrix[2][0]):
+        #         return False
+        #     for i in range(3):
+        #         if (s != matrix[i][0] + matrix[i][1] + matrix[i][2] or
+        #             s != matrix[0][i] + matrix[1][i] + matrix[2][i]):
+        #             return False
+        #     return True
 
         # all possible magic squares
         magic_squares = [
