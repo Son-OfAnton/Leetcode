@@ -17,5 +17,4 @@ class Solution:
                 right += 1
         
         return left + 1
-            
-           
+    
