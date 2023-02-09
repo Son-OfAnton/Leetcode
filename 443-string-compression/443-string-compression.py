@@ -1,29 +1,19 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        n = len(chars)
-        left = 0
-        right = 0
-        res = []
+        right, left = 0, 0
+        size = len(chars)
         
-        while right < n:
-            if chars[left] == chars[right]:
+        while right < size:
+            digit_spot = right
+            
+            while right < size and chars[right] == chars[digit_spot]:
                 right += 1
-            else:
-                res.append(chars[left])
-                if right - left > 1:
-                    for c in str(right - left):
-                        res.append(c)
-                left = right
                 
-        res.append(chars[left])
-        if right - left > 1:
-            for c in str(right - left):
-                res.append(c)
-        chars.clear()
-        for c in res:
-            chars.append(c)
-        
-        
-        return len(res)
-                
-        
+            chars[left] = chars[digit_spot]
+            left += 1
+            
+            if right - digit_spot != 1:
+                for s in str(right - digit_spot):
+                    chars[left] = s
+                    left += 1
+        return left     
