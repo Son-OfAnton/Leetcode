@@ -26,12 +26,18 @@ class Solution:
         return head
     
     
-    """
-    [1,2,6,3,4,5,6]
-    6
-    []
-    1
-    [7,7,7,7]
-    7
-    
-    """
+
+"""
+Recursive solution
+class Solution:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        if not head:
+            return head
+        else:
+            head.next = self.removeElements(head.next, val)
+            
+            if head.val == val:
+                return head.next
+            else:
+                head
+"""
