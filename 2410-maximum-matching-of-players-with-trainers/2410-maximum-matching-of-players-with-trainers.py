@@ -10,8 +10,7 @@ class Solution:
             if players[p_ptr] <= trainers[t_ptr]:
                 matchings += 1
                 p_ptr += 1
-                t_ptr += 1
-            elif players[p_ptr] > trainers[t_ptr]:
-                t_ptr += 1
+            
+            t_ptr += 1
                 
         return matchings
