@@ -9,18 +9,4 @@ class Solution:
             t_ptr += 1
             
         return s_ptr == s_size
-    """
-    "abc"
-    "ahbgdc"
-    "axc"
-    "ahbgdc"
-    "abc"
-    "abc"
-    "abc"
-    "dfdfegabc"
-    "abc"
-    "abcgthyhy"
-    "abc"
-    "abthnhc"
-    """
-                    
+   
