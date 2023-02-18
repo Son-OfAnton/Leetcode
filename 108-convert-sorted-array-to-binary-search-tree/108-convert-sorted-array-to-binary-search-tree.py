@@ -10,10 +10,11 @@ class Solution:
             return None
         
         middle = len(nums) // 2
-        
-        return TreeNode(nums[middle], self.sortedArrayToBST(nums[:middle]), 
-                        self.sortedArrayToBST(nums[middle + 1:]))
-    
+        root = nums[middle]
+        left_subtree = self.sortedArrayToBST(nums[:middle])
+        right_subtree = self.sortedArrayToBST(nums[middle + 1:])
+                                      
+        return TreeNode(root, left_subtree, right_subtree)
     
 # recursively partition nums and find the middle element of the partition. 
 # Then assign the middle element as a root node to each subtree.
