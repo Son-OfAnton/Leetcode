@@ -13,3 +13,7 @@ class Solution:
         
         return TreeNode(nums[middle], self.sortedArrayToBST(nums[:middle]), 
                         self.sortedArrayToBST(nums[middle + 1:]))
+    
+    
+# recursively partition nums and find the middle element of the partition. 
+# Then assign the middle element as a root node to each subtree.
