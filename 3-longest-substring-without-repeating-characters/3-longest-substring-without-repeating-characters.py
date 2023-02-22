@@ -6,7 +6,6 @@ class Solution:
         
         for right in range(len(s)):
             while s[right] in unique and left < right:
-                # longest = max(longest, right - left)
                 unique.remove(s[left])
                 left += 1
                 
@@ -15,26 +14,4 @@ class Solution:
                         
         return longest
     
-    "abcabcbb"
-    "bbbbb"
-    ""
-    "pwwkew"
-    "abcdefa"
-    "aabcdef"
-    "a"
-    
-    3
-    1
-    0
-    3
-    6
-    1
-    0
-
-    3
-    1
-    0
-    3
-    6
-    6
-    1
+  
