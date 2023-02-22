@@ -5,7 +5,7 @@ class Solution:
         longest = 0
         
         for right in range(len(s)):
-            while s[right] in unique and left < right:
+            while s[right] in unique:
                 unique.remove(s[left])
                 left += 1
                 
