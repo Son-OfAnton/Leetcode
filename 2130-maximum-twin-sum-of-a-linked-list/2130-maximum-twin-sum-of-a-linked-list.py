@@ -29,6 +29,12 @@ class Solution:
             prev = prev.next
         
         return max_sum
+    
+# Let LL = 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> %
+
+# Then after reversing from the mid LL = 1 -> 2 -> 3 -> 
+#                                                     % <- 4 <- 5 <- 6
+# where prev pointer is at node 6
             
         
         
