@@ -20,7 +20,7 @@ class Solution:
             curr.next = prev
             prev = curr
             curr = temp
-     
+            
         max_sum = 0
         
         while prev and head:
