@@ -23,7 +23,7 @@ class Solution:
             
         max_sum = 0
         
-        while prev and head:
+        while prev:
             max_sum = max(max_sum, prev.val + head.val)
             head = head.next
             prev = prev.next
