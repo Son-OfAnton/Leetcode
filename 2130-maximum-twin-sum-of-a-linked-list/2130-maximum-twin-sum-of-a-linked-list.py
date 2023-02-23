@@ -6,7 +6,6 @@
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
         slow = fast = head
-        prev = None
         
         while fast and fast.next:
             slow = slow.next
@@ -14,7 +13,8 @@ class Solution:
             
         # reversing the linked list from the middle onwards
         curr = slow
-        
+        prev = None
+
         while curr:
             temp = curr.next
             curr.next = prev
