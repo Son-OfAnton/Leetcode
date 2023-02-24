@@ -8,9 +8,7 @@ class Solution:
         for i in range(size - 1, -1, -1):
             backward.append(product)
             product *= nums[i]
-            
-        # backward = backward[::-1]
-        
+                    
         product = 1
         
         for i in range(size):
