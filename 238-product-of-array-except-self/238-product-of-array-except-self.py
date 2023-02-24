@@ -9,12 +9,12 @@ class Solution:
             backward.append(product)
             product *= nums[i]
             
-        backward = backward[::-1]
+        # backward = backward[::-1]
         
         product = 1
         
         for i in range(size):
-            forward.append(product * backward[i])
+            forward.append(product * backward[size - 1 - i])
             product *= nums[i]
         
 
