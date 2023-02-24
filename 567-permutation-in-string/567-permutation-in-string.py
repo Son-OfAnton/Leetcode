@@ -18,21 +18,6 @@ class Solution:
                     dic_2.pop(s2[left])
                 
                 left += 1
-                
-        # print(dic_1, dic_2)
-    
+                    
         return False
     
-    
-    """
-    "aab"
-    "eidbaooo"
-    "a"
-    "a"
-    "a"
-    "b"
-    "aab"
-    "aab"
-    "adc"
-    "dcda"
-    """
