@@ -5,26 +5,26 @@
 #         self.next = next
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        before_x_head = before_x_iter = ListNode()
-        after_x_head  = after_x_iter = ListNode()
+        less_x_head = less_x_iter = ListNode()
+        greater_x_head  = greater_x_iter = ListNode()
         
         curr = head 
         
         while curr:
             if curr.val < x:
-                before_x_iter.next = curr
-                before_x_iter = before_x_iter.next
+                less_x_iter.next = curr
+                less_x_iter = less_x_iter.next
             else:
-                after_x_iter.next = curr
-                after_x_iter = after_x_iter.next
+                greater_x_iter.next = curr
+                greater_x_iter = greater_x_iter.next
                 
             curr = curr.next
             
             
-        before_x_iter.next = after_x_head.next
-        after_x_iter.next =  None
+        less_x_iter.next = greater_x_head.next
+        greater_x_iter.next =  None
         
-        return before_x_head.next
+        return less_x_head.next
     
 # Partitioning the LL as it is discribed is grouping numbers
 # less than x at one side the others at another side. So, we 
