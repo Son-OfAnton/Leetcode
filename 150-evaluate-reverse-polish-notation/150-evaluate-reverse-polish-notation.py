@@ -1,7 +1,7 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
-        operands = {'+', '-', '/', '*', '^'}
+        operands = {'+', '-', '/', '*'}
 
         for char in tokens:
             if char not in operands:
@@ -18,8 +18,6 @@ class Solution:
                     stack.append(int(num_1) * int(num_2))
                 elif char == '/':
                     stack.append(int(num_1) / int(num_2))
-                else:
-                    stack.append(int(num_1) ** int(num_2))
 
         return int(stack.pop())
 
