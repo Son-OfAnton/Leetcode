@@ -7,17 +7,17 @@ class Solution:
             if char not in operands:
                 stack.append(char)
             else:
-                num_2 = stack.pop()
-                num_1 = stack.pop()
+                num_2 = int(stack.pop())
+                num_1 = int(stack.pop())
 
                 if char == '+':
-                    stack.append(int(num_1) + int(num_2))
+                    stack.append(num_1 + num_2)
                 elif char == '-':
-                    stack.append(int(num_1) - int(num_2))
+                    stack.append(num_1 - num_2)
                 elif char == '*':
-                    stack.append(int(num_1) * int(num_2))
+                    stack.append(num_1 * num_2)
                 elif char == '/':
-                    stack.append(int(num_1) / int(num_2))
+                    stack.append(num_1 / num_2)
 
         return int(stack.pop())
 
