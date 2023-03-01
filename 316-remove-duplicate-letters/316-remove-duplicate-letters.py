@@ -1,7 +1,7 @@
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
         last_index_occured = dict()
-        stack = deque()
+        stack = []
 
         for index, char in enumerate(s):
             last_index_occured[char] = index
