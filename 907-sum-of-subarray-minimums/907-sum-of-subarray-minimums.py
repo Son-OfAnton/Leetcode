@@ -16,3 +16,11 @@ class Solution:
             stack.append(index)
             
         return min_sum % MOD
+    
+
+# The trick is that to think of the question backwards. Instead of
+# finding all the subarrays first find the smallest numbers and later
+# find the possible range that the number is the smallest. Then find 
+# the smallest element to left and right and find the combination of 
+# subarrays between them that contain the current min and add that 
+# combination to the min_sum.
