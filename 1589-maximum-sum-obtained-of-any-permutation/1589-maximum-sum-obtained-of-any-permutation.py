@@ -15,9 +15,15 @@ class Solution:
         pre.pop()       # remove that space we added to avoid if case
         nums.sort()
         pre.sort()
+        
         max_sum = 0
         
         for index in range(n):
             max_sum += nums[index] * pre[index]
             
         return max_sum % (10**9 + 7)
+    
+    
+# The ideas is that identifying sorting indexes by how frequently 
+# they are covered by the requests. And placing the big numbers
+# on the frequenlty requested indexes accordingly.
