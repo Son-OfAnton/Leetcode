@@ -8,13 +8,11 @@ class Solution:
             return [1]
         
         upper_row = self.getRow(rowIndex - 1)
-        curr_row = [1]
+        curr_row = [1] * (rowIndex + 1)
         
-        for index in range(rowIndex - 1):
-            curr_row.append(upper_row[index] + upper_row[index + 1])
-        
-        curr_row.append(1)
-        
+        for index in range(1, rowIndex):
+            curr_row[index] = (upper_row[index - 1] + upper_row[index])
+                
         return curr_row
         
         
