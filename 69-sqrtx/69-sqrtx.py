@@ -1,11 +1,19 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        approximation = x
-        precision = 10 ** (-3)
-
-        while abs(x - approximation * approximation) > precision:
-            approximation = (approximation + x / approximation) / 2
-
-        return int(approximation)
+        left = 0
+        right = x // 2 + 1
+        
+        while left <= right:
+            mid = left + (right - left) // 2
+            
+            if mid * mid == x:
+                return mid
+            elif mid * mid < x:
+                left = mid + 1
+            elif mid * mid > x:
+                right = mid - 1
+        
+        return right
     
-# Babylonian method or newtwon/raphson method
+    
+   
