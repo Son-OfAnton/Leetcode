@@ -16,17 +16,6 @@ class Solution:
         curr_row.append(1)
         
         return curr_row
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
     
