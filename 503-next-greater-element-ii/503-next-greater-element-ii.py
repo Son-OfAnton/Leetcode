@@ -1,7 +1,6 @@
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        # nums.extend(nums)
         stack = []
         res = [-1] * n
         
