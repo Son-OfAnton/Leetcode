@@ -14,21 +14,8 @@ class Solution:
             
             if isBadVersion(mid):
                 right = mid
-            elif not isBadVersion(mid):
+            else:
                 left = mid
             
         return right
                 
-"""
-5
-4
-1
-1
-8
-4
-8
-8
-8
-1
-"""
-        
