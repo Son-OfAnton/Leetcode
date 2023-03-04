@@ -12,3 +12,6 @@ class Solution:
     
     def PredictTheWinner(self, nums: List[int]) -> bool:
         return self.minMax(nums, 0, len(nums) - 1) >= 0    
+    
+# Time O(2^n) ...... two possibilities for each depth hence two recursive calls
+# Space O(n) ...... depth of the recursion tree
