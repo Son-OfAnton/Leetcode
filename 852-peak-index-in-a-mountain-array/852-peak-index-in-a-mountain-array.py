@@ -9,7 +9,7 @@ class Solution:
                 return mid
             elif arr[mid - 1] < arr[mid]:
                 left = mid + 1
-            elif arr[mid - 1] > arr[mid]:
+            else:
                 right = mid - 1
             
         
