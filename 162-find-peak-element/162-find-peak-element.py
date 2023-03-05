@@ -2,6 +2,7 @@ class Solution:
     def findPeakElement(self, arr: List[int]) -> int:
         if len(arr) == 1:
             return 0
+        
         left, right = 1, len(arr) - 2
         
         while left <= right:
@@ -18,5 +19,7 @@ class Solution:
             return left
         else:
             return right
+        
+# very similar to 852. Peak Index in a Mountain Array
             
         
