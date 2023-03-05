@@ -12,17 +12,15 @@ class Solution:
             return list2
         if not list2:
             return list1
-        
-        merged = ListNode()
-        
+                
         if list1.val > list2.val:
-            merged.val = list2.val
-            merged.next = self.mergeTwoLists(list1, list2.next)
-        else:
-            merged.val = list1.val
-            merged.next = self.mergeTwoLists(list1.next, list2)
+            list2.next = self.mergeTwoLists(list1, list2.next)
             
-        return merged
+            return list2
+        else:
+            list1.next = self.mergeTwoLists(list1.next, list2)
+            
+            return list1
         
         
         
