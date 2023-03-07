@@ -12,7 +12,7 @@ class Solution:
             elif nums[mid] > target:
                 right = mid - 1
 
-            elif nums[mid] < target:
+            else:
                 left = mid + 1
         
         return left
