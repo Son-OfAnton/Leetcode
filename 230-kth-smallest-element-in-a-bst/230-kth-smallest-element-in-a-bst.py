@@ -21,10 +21,5 @@ class Solution:
         
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         self.inorder(root)
-        print(self.store)
-        kth_smallest = None
         
-        for _ in range(k):
-            kth_smallest = self.store.popleft()
-            
-        return kth_smallest
+        return self.store[k - 1]
