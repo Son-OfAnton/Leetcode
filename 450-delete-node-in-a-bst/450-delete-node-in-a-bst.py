@@ -5,6 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    
+    def findInorderSuccessor(self, rightRoot: Optional[TreeNode]):
+        temp = rightRoot
+        
+        while temp.left:
+                temp = temp.left
+                
+        return temp
+    
+    
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
         if not root:
             return None
@@ -16,27 +26,19 @@ class Solution:
         
         # in the following case the key is found
         else:
-            # leaf node case
-            if not root.left and not root.right:
-                return None
-            
-            # only right child
-            elif not root.left:
+            # only right child or leaf node
+            if not root.left:
                 return root.right
             
-            #only left child
+            #only left child or leaf node
             elif not root.right:
                 return root.left
             
             # both child
-            # finding the 2nd smallest from sub-tree
-            temp = root.right
-
-            while temp.left:
-                temp = temp.left
-
-            # copying the 2nd smallest val to sub-tree root
-            root.val = temp.val
+            # finding the 2nd smallest from sub-tree aka inorder successor
+            # and inorder successor's value to sub-tree root
+            inorder_successor = self.findInorderSuccessor(root.right)
+            root.val = inorder_successor.val
 
             #delete the 2nd smallest to avoid duplication
             root.right = self.deleteNode(root.right, root.val)
