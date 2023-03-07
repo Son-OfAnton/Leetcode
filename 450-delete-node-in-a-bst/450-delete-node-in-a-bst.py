@@ -29,18 +29,17 @@ class Solution:
                 return root.left
             
             # both child
-            else:
-                # finding the 2nd smallest from sub-tree
-                temp = root.right
-                
-                while temp.left:
-                    temp = temp.left
-                
-                # copying the 2nd smallest val to sub-tree root
-                root.val = temp.val
-                
-                #delete the 2nd smallest to avoid duplication
-                root.right = self.deleteNode(root.right, root.val)
+            # finding the 2nd smallest from sub-tree
+            temp = root.right
+
+            while temp.left:
+                temp = temp.left
+
+            # copying the 2nd smallest val to sub-tree root
+            root.val = temp.val
+
+            #delete the 2nd smallest to avoid duplication
+            root.right = self.deleteNode(root.right, root.val)
         
         return root
                 
