@@ -7,7 +7,7 @@
 class Solution:
     
     def __init__(self):
-        self.store = deque()
+        self.store = []
         
         
     def inorder(self, root):
