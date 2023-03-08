@@ -4,32 +4,14 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    
-    def __init__(self):
-        self.is_same = True
-        
-        
-    def helper(self, p: Optional[TreeNode], q: Optional[TreeNode]):
-        if not p and not q:
-            return
-        if not p:
-            self.is_same = False
-            return
-        if not q:
-            self.is_same = False
-            return
-            
-        self.helper(p.left, q.left)
-        self.helper(p.right, q.right)
-        
-        if p.val != q.val:
-            self.is_same = False
-            return
-            
-            
+class Solution:       
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        self.helper(p, q)
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        if p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         
-        return self.is_same
+        return False
         
