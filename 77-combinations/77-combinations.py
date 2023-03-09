@@ -3,13 +3,13 @@ class Solution:
         self.solutions = []
         
     
-    def backtrack(self, path, start, level, n):
+    def backtrack(self, comb, start, level, n):
         if level == 0:
-            self.solutions.append(path)
+            self.solutions.append(comb)
             return 
         
         for num in range(start, n + 1):
-            self.backtrack(path + [num], num + 1, level - 1, n)
+            self.backtrack(comb + [num], num + 1, level - 1, n)
             
             
     def combine(self, n: int, k: int) -> List[List[int]]:
