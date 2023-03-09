@@ -1,7 +1,7 @@
 class Solution:
     def __init__(self):
         self.min_unfairness = float('inf')
-        self.distribution = None
+        self.distribution = []
         
     def backtrack(self, cookies, cookie_index, k):
         if cookie_index >= len(cookies):
@@ -24,7 +24,9 @@ class Solution:
             
         
     def distributeCookies(self, cookies: List[int], k: int) -> int:
-        self.distribution = [0] * k
+        for _ in range(k):
+            self.distribution.append(0)
+            
         self.backtrack(cookies, 0, k)
         
         return self.min_unfairness
