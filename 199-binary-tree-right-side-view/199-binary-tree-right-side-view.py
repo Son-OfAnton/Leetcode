@@ -6,18 +6,20 @@
 #         self.right = right
 class Solution:
     def __init__(self):
+        # this map has level as keys and nodes
+        # at that level as values
         self.level_nodes = defaultdict(list)
         
-    def helper(self, root, level):
+    def populateLevelOrderMap(self, root, level):
         if not root:
             return
 
-        self.helper(root.left, level + 1)
+        self.populateLevelOrderMap(root.left, level + 1)
         self.level_nodes[level].append(root.val)
-        self.helper(root.right, level + 1)
+        self.populateLevelOrderMap(root.right, level + 1)
     
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        self.helper(root, 0)
+        self.populateLevelOrderMap(root, 0)
         
         res = []
         
