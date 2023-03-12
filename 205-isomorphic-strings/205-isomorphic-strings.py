@@ -1,6 +1,6 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        char_map = {}
+        char_map = dict()
         
         for i in range(len(s)):
             if s[i] in char_map:
