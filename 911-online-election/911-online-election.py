@@ -9,7 +9,7 @@ class TopVotedCandidate:
         for i in range(len(persons)):
             self.board[persons[i]] += 1
 
-            if self.board[persons[i]] >= self.board[self.curr_leader]:
+            if self.board[self.curr_leader] <= self.board[persons[i]]:
                 self.curr_leader = persons[i]
             
             self.leaders[i] = self.curr_leader
