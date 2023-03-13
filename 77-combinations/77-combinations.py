@@ -1,18 +1,50 @@
 class Solution:
-    def __init__(self):
-        self.solutions = []
-        
-    
-    def backtrack(self, comb, start, level, n):
-        if level == 0:
-            self.solutions.append(comb)
-            return 
-        
-        for num in range(start, n + 1):
-            self.backtrack(comb + [num], num + 1, level - 1, n)
-            
-            
     def combine(self, n: int, k: int) -> List[List[int]]:
-        self.backtrack([], 1, k, n)
+        nums = [num for num in range(1, n+1)]
+        combinations = []
         
-        return self.solutions
+        def backtrack(i, combination):
+            if len(combination) == k:
+                combinations.append(combination.copy())
+                return
+            if i >= n:
+                return
+
+            combination.append(nums[i])
+            backtrack(i+1, combination)
+            combination.pop()
+            backtrack(i+1, combination)
+        
+        backtrack(0, [])
+            
+        return combinations
+
+
+
+
+
+
+
+
+
+
+
+
+        # res = []
+
+        # def backtrack(candidate, curr):
+        #     if len(curr) == k:
+        #         res.append(curr[:])
+        #         return
+
+        #     if candidate > n:
+        #         return
+
+        #     for i in range(candidate, n + 1):
+        #         curr.append(i)
+        #         backtrack(i + 1, curr)
+        #         curr.pop()
+
+        # backtrack(1, [])
+
+        # return res 
