@@ -20,31 +20,21 @@ class Solution:
         return combinations
 
 
+# res = []
 
+# def backtrack(candidate, curr):
+#     if len(curr) == k:
+#         res.append(curr[:])
+#         return
 
+#     if candidate > n:
+#         return
 
+#     for i in range(candidate, n + 1):
+#         curr.append(i)
+#         backtrack(i + 1, curr)
+#         curr.pop()
 
+# backtrack(1, [])
 
-
-
-
-
-
-        # res = []
-
-        # def backtrack(candidate, curr):
-        #     if len(curr) == k:
-        #         res.append(curr[:])
-        #         return
-
-        #     if candidate > n:
-        #         return
-
-        #     for i in range(candidate, n + 1):
-        #         curr.append(i)
-        #         backtrack(i + 1, curr)
-        #         curr.pop()
-
-        # backtrack(1, [])
-
-        # return res 
+# return res 
