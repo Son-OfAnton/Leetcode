@@ -7,9 +7,7 @@ class Solution:
             if i == n:
                 subsets.append(candidate.copy())
                 return
-            if i > n:
-                return
-
+            
             candidate.append(nums[i])
             backtrack(i+1, candidate)
             candidate.pop()
