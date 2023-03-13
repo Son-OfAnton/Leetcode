@@ -1,35 +1,24 @@
 class Solution:
-    def __init__(self):
-        self.flag = False
-        
-    def backtrack(self, splitted, left_over_s):
-        if len(left_over_s) == 0 and len(splitted) > 1:
-            self.flag = True
-            
-        if self.flag:
-            return True
-        
-        for index in range(len(left_over_s)):
-            new_splitted = splitted[:]
-            
-            if new_splitted:
-                candidate = int(left_over_s[:index + 1])
-                if new_splitted[-1] - candidate == 1:
-                    new_splitted.append(candidate)
-                
-                else:
-                    continue
-                    
-            else:
-                new_splitted.append(int(left_over_s[:index + 1]))
-            
-            self.backtrack(new_splitted, left_over_s[index + 1:])
-            
-            
-            
     def splitString(self, s: str) -> bool:
-        self.backtrack([], s)
+        n = len(s)
+
+        def backtrack(index, pre_val):
+            # base case
+            if index == n:
+                return True
+            
+            for j in range(index, n):
+                val = int(s[index:j + 1])
+
+                if pre_val - 1 == val and backtrack(j + 1, val):
+                    return True
+                
+            return False
         
-        return self.flag
-        
-        
+        for i in range(n - 1): # 1st level can't include the last char
+            val = int(s[:i + 1])
+
+            if backtrack(i + 1, val):
+                return True
+            
+        return False
