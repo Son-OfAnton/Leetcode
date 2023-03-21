@@ -11,14 +11,20 @@ class Solution:
         
         
     def maxLength(self, arr: List[str]) -> int:
-        n = len(arr)
+        new = []
+        
+        for s in arr:
+            if len(set(s)) == len(s):
+                new.append(s)
+                
+        n = len(new)
         
         def backtrack(i, sub_seq):
             if i == n:
                 self.checkUniqueness(sub_seq)
                 return
 
-            sub_seq.append(arr[i])
+            sub_seq.append(new[i])
             self.checkUniqueness(sub_seq)        
             backtrack(i + 1, sub_seq)
             sub_seq.pop()
