@@ -13,6 +13,8 @@ class Solution:
     def maxLength(self, arr: List[str]) -> int:
         new = []
         
+        # keeping the strings which has
+        # unique elements helps to prune
         for s in arr:
             if len(set(s)) == len(s):
                 new.append(s)
