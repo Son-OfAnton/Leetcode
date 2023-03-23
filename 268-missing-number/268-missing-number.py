@@ -5,15 +5,10 @@ class Solution:
         for curr in range(n):
             pos = nums[curr]
             
-            while pos != curr:
-                if pos < n:
-                    nums[pos], nums[curr] = nums[curr], nums[pos]
-                else:
-                    break
-                
+            while pos < n and pos != curr:
+                nums[pos], nums[curr] = nums[curr], nums[pos]
                 pos = nums[curr]
                 
-
         for i in range(n):
             if i != nums[i]:
                 return i
