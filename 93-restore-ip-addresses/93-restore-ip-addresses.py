@@ -12,13 +12,13 @@ class Solution:
                 valid_IPs.append(".".join(candidate_IP))
                 return
 
-            for i in range(dot_pos + 1, dot_pos + 4):
-                octate = s[dot_pos:i]
+            for i in range(dot_pos, n):
+                octate = s[dot_pos:i + 1]
 
                 if i <= n and int(octate) <= 255 \
-                and (octate == '0' or octate[0] != '0'):
+                and (octate == '0' or octate[0] != '0'):    # checking validity then place,call,remove
                     candidate_IP.append(octate)
-                    backtrack(i, candidate_IP)
+                    backtrack(i + 1, candidate_IP)
                     candidate_IP.pop()
                             
         backtrack(0, [])
