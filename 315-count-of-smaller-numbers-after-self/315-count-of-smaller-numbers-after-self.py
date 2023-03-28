@@ -49,3 +49,8 @@ class Solution:
         divide(0, len(nums) - 1)
         
         return smaller_nums
+    
+
+# almost the same questions are 
+# https://leetcode.com/problems/number-of-pairs-satisfying-inequality/
+# https://leetcode.com/problems/reverse-pairs/description/
