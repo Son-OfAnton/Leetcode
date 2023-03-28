@@ -20,14 +20,13 @@ class Solution:
             left_ptr, right_ptr = 0, 0
             i, j = 0, 0
             
-            while j < len(right_half):
+            for j in range(len(right_half)):
                 while i < len(left_half) and left_half[i] <= 2 * right_half[j]:
                     i += 1
                 if i < len(left_half):
                     pairs += len(left_half) - i
                 else:
                     break
-                j += 1
                 
             while left_ptr < len(left_half) and right_ptr < len(right_half):
                 if left_half[left_ptr] <= right_half[right_ptr]:
