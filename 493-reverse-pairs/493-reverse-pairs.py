@@ -17,18 +17,19 @@ class Solution:
         def merge(left_half, right_half):
             nonlocal pairs
             merged = []
+            left_size, right_size = len(left_half), len(right_half)
             left_ptr, right_ptr = 0, 0
             i, j = 0, 0
             
-            for j in range(len(right_half)):
-                while i < len(left_half) and left_half[i] <= 2 * right_half[j]:
+            for j in range(right_size):
+                while i < left_size and left_half[i] <= 2 * right_half[j]:
                     i += 1
-                if i < len(left_half):
-                    pairs += len(left_half) - i
+                if i < left_size:
+                    pairs += left_size - i
                 else:
                     break
                 
-            while left_ptr < len(left_half) and right_ptr < len(right_half):
+            while left_ptr < left_size and right_ptr < right_size:
                 if left_half[left_ptr] <= right_half[right_ptr]:
                     merged.append(left_half[left_ptr])
                     left_ptr += 1
@@ -36,10 +37,10 @@ class Solution:
                     merged.append(right_half[right_ptr])
                     right_ptr += 1
 
-            while left_ptr < len(left_half):
+            while left_ptr < left_size:
                 merged.append(left_half[left_ptr])
                 left_ptr += 1
-            while right_ptr < len(right_half):
+            while right_ptr < right_size:
                 merged.append(right_half[right_ptr])
                 right_ptr += 1
             
