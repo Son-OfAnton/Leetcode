@@ -42,6 +42,7 @@ class Solution:
             while left_ptr < left_size:
                 merged.append(left_half[left_ptr])
                 left_ptr += 1
+                
             while right_ptr < right_size:
                 merged.append(right_half[right_ptr])
                 right_ptr += 1
