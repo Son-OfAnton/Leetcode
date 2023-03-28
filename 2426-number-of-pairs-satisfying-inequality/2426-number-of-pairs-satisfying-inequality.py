@@ -1,14 +1,14 @@
 class Solution:
     def numberOfPairs(self, nums1: List[int], nums2: List[int], diff: int) -> int:
-        compressed = []
+        diff_list = []
         pairs = 0
         
         for i in range(len(nums1)):
-            compressed.append(nums1[i] - nums2[i])
+            diff_list.append(nums1[i] - nums2[i])
             
         def divide(left: int, right: int) -> List[int]:
             if left - right == 0:
-                return [compressed[left]]
+                return [diff_list[left]]
             
             mid = left + (right - left) // 2
 
@@ -21,18 +21,17 @@ class Solution:
         def merge(left_half, right_half):
             nonlocal pairs
             merged = []
+            left_size, right_size = len(left_half), len(right_half)
             left_ptr, right_ptr = 0, 0
-            i, j = 0, 0
+            i = 0
             
-            while j < len(right_half):
-                while i < len(left_half) and left_half[i] <= right_half[j] + diff:
+            for j in range(len(right_half)):
+                while i < left_size and left_half[i] <= right_half[j] + diff:
                     i += 1
                 
-                pairs += i
-                j += 1
+                pairs += i                
                 
-                
-            while left_ptr < len(left_half) and right_ptr < len(right_half):
+            while left_ptr < left_size and right_ptr < right_size:
                 if left_half[left_ptr] <= right_half[right_ptr]:
                     merged.append(left_half[left_ptr])
                     left_ptr += 1
@@ -40,17 +39,17 @@ class Solution:
                     merged.append(right_half[right_ptr])
                     right_ptr += 1
 
-            while left_ptr < len(left_half):
+            while left_ptr < left_size:
                 merged.append(left_half[left_ptr])
                 left_ptr += 1
-            while right_ptr < len(right_half):
+            while right_ptr < right_size:
                 merged.append(right_half[right_ptr])
                 right_ptr += 1
             
             
             return merged
 
-        divide(0, len(compressed) - 1)
+        divide(0, len(diff_list) - 1)
         
         return pairs
     
