@@ -10,7 +10,7 @@ class Solution:
             while num > 0:
                 if num & mask == 1:
                     count += 1
-                num = num >> 1
+                num >>= 1
             ans[i] = count
             
         return ans
