@@ -1,14 +1,12 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         XOR_of_nums = 0
-        XOR_of_range = 0
+        XOR_of_range = len(nums)
         
         for i, num in enumerate(nums):
             XOR_of_nums ^= num
             XOR_of_range ^= i
-            
-        XOR_of_range ^= len(nums)
-        
+                    
         return XOR_of_nums ^ XOR_of_range
             
         
