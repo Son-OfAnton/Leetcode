@@ -1,7 +1,8 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
         """
-        Time O(m) m - the number of 1 bits
+        Does at most m iterations where m is the number of 1 bits
+        stops when the 1s ran out
         """
         count = 0
         
@@ -13,6 +14,8 @@ class Solution:
     
     
 """
+always 32 iterations even when there are no 1 bits left
+
 mask = 1
     one_count = 0
 
