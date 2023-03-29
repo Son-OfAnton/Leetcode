@@ -7,7 +7,8 @@ class Solution:
         def backtrack(i, candidate):
             if i == n:
                 permutations.append(candidate.copy())
-                
+                return
+            
             for index in range(n):
                 if nums[index] not in seen:
                     candidate.append(nums[index])
