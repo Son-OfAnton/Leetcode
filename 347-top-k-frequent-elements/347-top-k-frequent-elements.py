@@ -23,11 +23,9 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         freq_map = Counter(nums)
         num_freq = [[num, freq] for num, freq in freq_map.items()]
-        # print(f"before sort {num_freq}")
         n = len(num_freq)
 
         self.quickSelect(num_freq, 0, n - 1, n - k)
-        # print(f"after sort {num_freq}")
         res = []
         
         for index in range(n - k, n):
