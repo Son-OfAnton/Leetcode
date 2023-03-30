@@ -11,8 +11,11 @@ class Solution:
                 write += 1
 
         num_freq[start], num_freq[write - 1] = num_freq[write - 1], num_freq[start]
-
-        if write > needed_index:
+        
+        if write - 1 == needed_index:
+            return
+        
+        elif write > needed_index:
             self.quickSelect(num_freq, start, write - 2, needed_index)
         else:
             self.quickSelect(num_freq, write, end, needed_index)
