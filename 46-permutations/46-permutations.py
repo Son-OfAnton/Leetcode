@@ -6,7 +6,7 @@ class Solution:
         
         def backtrack(candidate):
             if len(candidate) == n:
-                permutations.append(candidate[:])
+                permutations.append(candidate.copy())
                 return
             
             for index in range(n):
