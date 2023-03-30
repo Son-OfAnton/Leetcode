@@ -3,7 +3,6 @@ class Solution:
         if start >= end:
             return
         
-        # pivot = num_freq[start]
         write = start + 1
 
         for read in range(start + 1, end + 1):
