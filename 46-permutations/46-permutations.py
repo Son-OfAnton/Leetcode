@@ -2,22 +2,22 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         permutations = []
-        seen = set()
+        seen = [False] * n
         
-        def backtrack(i, candidate):
-            if i == n:
+        def backtrack(candidate):
+            if len(candidate) == n:
                 permutations.append(candidate.copy())
                 return
             
             for index in range(n):
-                if nums[index] not in seen:
+                if not seen[index]:
                     candidate.append(nums[index])
-                    seen.add(nums[index])
-                    backtrack(i + 1, candidate)
-                    seen.remove(nums[index])
+                    seen[index] = True
+                    backtrack(candidate)
+                    seen[index] = False
                     candidate.pop()
                     
-        backtrack(0, [])
+        backtrack([])
         
         return permutations
     
