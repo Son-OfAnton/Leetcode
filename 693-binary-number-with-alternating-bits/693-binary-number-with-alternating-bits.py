@@ -3,9 +3,7 @@ class Solution:
         mask_a, mask_b = 1, 2
         
         for _ in range(n.bit_length() - 1):
-            a = mask_a & n
-            b = mask_b & n
-            filtered = bool(a) ^ bool(b)
+            filtered = bool(mask_a & n) ^ bool(mask_b & n)
             mask_a <<= 1
             mask_b <<= 1
             
