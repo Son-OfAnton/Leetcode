@@ -13,13 +13,14 @@ class Solution:
                 return
             
             for index in range(n):
+                shifted = 1 << index
                 # if not seen[index]:
-                if bit_mask & (1 << index) == 0:
+                if bit_mask & shifted == 0:
                     candidate.append(nums[index])
                     # seen[index] = True
-                    bit_mask |= (1 << index)
+                    bit_mask |= shifted
                     backtrack(candidate)
-                    bit_mask &= ~(1 << index)
+                    bit_mask &= ~shifted
                     # seen[index] = False
                     candidate.pop()
                     
