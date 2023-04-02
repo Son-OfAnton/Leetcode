@@ -13,9 +13,8 @@ class Solution:
 
                     for num in candidate:
                         subset_OR |= num
-
-                    max_OR = max(subset_OR, subset_OR)    
-                    max_OR_count[max_OR] += 1
+    
+                    max_OR_count[subset_OR] += 1
 
                 return
             
