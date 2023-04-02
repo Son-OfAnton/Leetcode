@@ -2,19 +2,25 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         n = len(nums)
         permutations = []
-        seen = [False] * n
+        # seen = [False] * n
+        bit_mask = 0
         
         def backtrack(candidate):
+            nonlocal bit_mask
+            
             if len(candidate) == n:
                 permutations.append(candidate.copy())
                 return
             
             for index in range(n):
-                if not seen[index]:
+                # if not seen[index]:
+                if bit_mask & (1 << index) == 0:
                     candidate.append(nums[index])
-                    seen[index] = True
+                    # seen[index] = True
+                    bit_mask |= (1 << index)
                     backtrack(candidate)
-                    seen[index] = False
+                    bit_mask &= ~(1 << index)
+                    # seen[index] = False
                     candidate.pop()
                     
         backtrack([])
