@@ -1,5 +1,5 @@
 class Solution:
-    def gcd(self, a, b=0):
+    def gcd(self, a, b):
         if b == 0:
             return a
 
