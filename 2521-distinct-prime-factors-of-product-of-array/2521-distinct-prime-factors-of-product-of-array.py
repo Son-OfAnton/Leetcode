@@ -18,7 +18,6 @@ class Solution:
     def distinctPrimeFactors(self, nums: List[int]) -> int:
         for num in nums:
             self.prime_factorizer(num)
-
             
         return len(self.distinct_prime_factors)
         
