@@ -10,7 +10,7 @@ class Solution:
         after_fill[sr][sc] = color
         
         def dfs(row, col):
-            if row == sr and col == sc and (row, col) in visited:
+            if (row, col) in visited:
                 return
 
             visited.add((row, col))
