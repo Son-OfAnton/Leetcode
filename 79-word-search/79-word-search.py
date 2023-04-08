@@ -1,16 +1,16 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         row, col = len(board), len(board[0])
-#         word_count = Counter(word)
-#         board_count = defaultdict(int)
+        word_count = Counter(word)
+        board_count = defaultdict(int)
 
-#         for rx in range(row):
-#             for cx in range(col):
-#                 board_count[board[rx][cx]] += 1
+        for rx in range(row):
+            for cx in range(col):
+                board_count[board[rx][cx]] += 1
         
-#         for char in word:
-#             if word_count[char] > board_count[char]:
-#                 return False
+        for char in word:
+            if word_count[char] > board_count[char]:
+                return False
             
         visited = set()
         in_bound = lambda rx, cx: 0 <= rx < row and 0 <= cx < col
