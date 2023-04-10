@@ -11,7 +11,7 @@ class Solution:
             
             visited.add(city)
             for i, connection in enumerate(isConnected[city]):
-                if connection and i not in visited and i != city:
+                if connection and i not in visited:
                     province -= 1
                     dfs(i)
                     
