@@ -14,20 +14,19 @@ class Solution:
         for employee in employees:
             graph[employee.id] = [employee.importance, employee.subordinates]
             
-        total_importance = graph[id][0]
-        
+            
         def dfs(id):
-            nonlocal total_importance
+            total_importance = graph[id][0]
             
             if not graph[id][1]:
-                return
+                return total_importance
             
-            for subordinate_id in graph[id][1]:
-                total_importance += graph[subordinate_id][0]
-                dfs(subordinate_id)
+            for subordinate_id in graph[id][1]:                
+                total_importance += dfs(subordinate_id)
                 
-        dfs(id)
-        return total_importance
+            return total_importance
+                
+        return dfs(id)
     
     
 
