@@ -10,12 +10,12 @@ class Solution:
                 return
             
             visited.add(city)
-            for i, neighbour in enumerate(isConnected[city - 1]):
-                if neighbour == 1 and i + 1 not in visited and i + 1 != city:
+            for i, connection in enumerate(isConnected[city]):
+                if connection and i not in visited and i != city:
                     province -= 1
-                    dfs(i+1)
+                    dfs(i)
                     
-        for i in range(1, len(isConnected) + 1):
+        for i in range(len(isConnected)):
             dfs(i)
             
         return province
