@@ -11,7 +11,6 @@ class Solution:
         def dfs(rx, cx):
             nonlocal max_area
             
-            curr_area = len(visited)
             visited.add((rx, cx))
             
             for dx, dy in directions:
@@ -19,15 +18,14 @@ class Solution:
                 
                 if in_bound(new_x, new_y) and grid[new_x][new_y] == 1 \
                 and (new_x, new_y) not in visited:
-                    curr_area += 1
                     dfs(new_x, new_y)        
         
         for rx in range(m):
             for cx in range(n):
                 if grid[rx][cx] == 1 and (rx, cx) not in visited:
-                    curr_area = len(visited)
+                    curr_max_area = len(visited)
                     dfs(rx, cx)
-                    max_area = max(max_area, len(visited) - curr_area)
+                    max_area = max(max_area, len(visited) - curr_max_area)
                     
         return max_area
                 
