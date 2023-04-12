@@ -10,19 +10,19 @@ class Solution:
         
         def dfs(root, power, path):
             nonlocal big_sum
-
+            
+            if not root:
+                return
             path.append(str(root.val))
 
             if not root.left and not root.right:
                 big_sum += int("".join(path))
+                path.pop()
                 return
 
-            if root.left:
-                dfs(root.left, power + 1, path)
-                path.pop()
-            if root.right:
-                dfs(root.right, power + 1, path)
-                path.pop()
+            dfs(root.left, power + 1, path)
+            dfs(root.right, power + 1, path)
+            path.pop()
 
             
         dfs(root, 0, [])
