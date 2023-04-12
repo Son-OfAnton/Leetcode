@@ -6,27 +6,27 @@
 #         self.right = right
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
-        big_sum = 0
+        sum_root_to_leaf = 0
         
-        def dfs(root, power, path):
-            nonlocal big_sum
+        def dfs(root, path):
+            nonlocal sum_root_to_leaf
             
             if not root:
                 return
             path.append(str(root.val))
 
             if not root.left and not root.right:
-                big_sum += int("".join(path))
+                sum_root_to_leaf += int("".join(path))
                 path.pop()
                 return
 
-            dfs(root.left, power + 1, path)
-            dfs(root.right, power + 1, path)
+            dfs(root.left, path)
+            dfs(root.right, path)
             path.pop()
 
             
-        dfs(root, 0, [])
+        dfs(root, [])
             
-        return big_sum
+        return sum_root_to_leaf
 
         
