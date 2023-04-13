@@ -1,38 +1,31 @@
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        row, col = len(grid2), len(grid2[0])
+        rows, cols = len(grid2), len(grid2[0])
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        visited = set()
+        visited = [[False] * cols for _ in range(rows)]
         
-        def inbound(rx, cx):
-            return 0 <= rx < row and 0 <= cx < col
-        
-        def dfs(rx, cx):
-            if not inbound(rx, cx) or grid2[rx][cx] == 0 or (rx, cx) in visited:
+        def dfs(row_index, col_index):
+            if not (0 <= row_index < rows and 0 <= col_index < cols) or grid2[row_index][col_index] == 0 or visited[row_index][col_index]:
                 return True
 
-            curr = True
-            if grid1[rx][cx] == 0:
-                curr = False
+            is_curr_island = True
+            if grid1[row_index][col_index] == 0:
+                is_curr_island = False
 
-            visited.add((rx, cx))
+            visited[row_index][col_index] = True
 
-            for _dir in directions:
-                new_rx, new_cx = rx + _dir[0], cx + _dir[1]
-                curr &= dfs(new_rx, new_cx)
+            for direction in directions:
+                new_row_index, new_col_index = row_index + direction[0], col_index + direction[1]
+                is_curr_island &= dfs(new_row_index, new_col_index)
 
-            return curr
+            return is_curr_island
             
         sub_island_count = 0
         
-        for rx in range(row):
-            for cx in range(col):
-                if grid2[rx][cx] == 1 and (rx, cx) not in visited:
-                    if dfs(rx, cx):
+        for row_index in range(rows):
+            for col_index in range(cols):
+                if grid2[row_index][col_index] == 1 and not visited[row_index][col_index]:
+                    if dfs(row_index, col_index):
                         sub_island_count += 1         
                     
         return sub_island_count
-                    
-            
-                
-            
