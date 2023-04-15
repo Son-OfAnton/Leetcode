@@ -14,16 +14,13 @@ class ThroneInheritance:
 
     def getInheritanceOrder(self) -> List[str]:
         curr_order = []
-        visited = set()
         
         def dfs(person):
             if person not in self.cemetery:
                 curr_order.append(person)
-            visited.add(person)
             
             for child in self.family_tree[person]:
-                if child not in visited:
-                    dfs(child)
+                dfs(child)
                     
         dfs(self.kingName)
                     
