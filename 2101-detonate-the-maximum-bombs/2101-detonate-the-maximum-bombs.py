@@ -2,15 +2,12 @@ class Solution:
     def calc_dist(self, x_1, y_1, x_2, y_2):
         return (x_2 - x_1) ** 2 + (y_2 - y_1) ** 2
     
-    def dfs(self, graph, bomb, visited, curr_detonated):
-        visited.add(bomb)
-        curr_detonated += 1
-        
+    def dfs(self, graph, bomb, detoneted):
+        detoneted.add(bomb)
+
         for other in graph[bomb]:
-            if other not in visited:
-                curr_detonated = max(curr_detonated, self.dfs(graph, other, visited, curr_detonated))
-                
-        return curr_detonated
+            if other not in detoneted:
+                self.dfs(graph, other, detoneted)
 
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
         n = len(bombs)
@@ -18,7 +15,7 @@ class Solution:
         
         # build the graph
         for i in range(n):
-            for j in range(n):
+            for j in range(i + 1, n):
                 if i != j:
                     dist = self.calc_dist(bombs[i][0], bombs[i][1], bombs[j][0], bombs[j][1])
 
@@ -29,8 +26,8 @@ class Solution:
         
         max_bomb = 0
         for bomb in range(n):
-            visited = set()
-            curr_detonated = self.dfs(graph, bomb, visited, 0)
-            max_bomb = max(max_bomb, curr_detonated)
+            detoneted = set()
+            self.dfs(graph, bomb, detoneted)
+            max_bomb = max(max_bomb, len(detoneted))
 
         return max_bomb
