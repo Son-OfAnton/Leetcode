@@ -21,12 +21,12 @@ class Solution:
                 if inbound(new_rx, new_cx):
                     if board[new_rx][new_cx] == 'M':
                         mine_count += 1
-                    
-            if mine_count == 0:
-                board[rx][cx] = 'B'
-            else:
+            
+            if mine_count > 0:
                 board[rx][cx] = str(mine_count)
                 return
+            
+            board[rx][cx] = 'B'
 
             for _dir in directions:
                 new_rx, new_cx = rx + _dir[0], cx + _dir[1]
