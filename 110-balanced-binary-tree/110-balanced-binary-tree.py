@@ -8,19 +8,13 @@ class Solution:
     def maxDepth(self, node: Optional[TreeNode]) -> int:
         if not node:
             return 0
-        
-        if not node.left and not node.right: 
-            return 1
-        
+                
         return 1 + max(self.maxDepth(node.left), self.maxDepth(node.right))
 
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return True
-        
-        if not root.left and not root.right:
-            return True
-        
+                
         left_max_depth = self.maxDepth(root.left)
         right_max_depth = self.maxDepth(root.right)
         
