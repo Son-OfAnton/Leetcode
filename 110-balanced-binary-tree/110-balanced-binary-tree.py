@@ -18,6 +18,9 @@ class Solution:
         if not root:
             return True
         
+        if not root.left and not root.right:
+            return True
+        
         left_max_depth = self.maxDepth(root.left)
         right_max_depth = self.maxDepth(root.right)
         
