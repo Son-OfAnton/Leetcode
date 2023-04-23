@@ -6,25 +6,23 @@
 #         self.right = right
 class Solution:
     def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
-        def helper(node):
-            if not node:
+        def helper(start, end):
+            if start > end:
                 return [None]
 
             unique_BST = []
 
-            for index, num in enumerate(node):
-                left_subtree_candidates = helper(node[:index])
-                right_subtree_candidates = helper(node[index + 1:])
+            for index in range(start, end + 1):
+                left_subtree_candidates = helper(start, index - 1)
+                right_subtree_candidates = helper(index + 1, end)
 
                 for left_child in left_subtree_candidates:
                     for right_child in right_subtree_candidates:
-                        root = TreeNode(num)
+                        root = TreeNode(index)
                         root.left = left_child
                         root.right = right_child
                         unique_BST.append(root)
 
             return unique_BST
                         
-        all_nodes = [i for i in range(1, n + 1)]
-        
-        return helper(all_nodes)
+        return helper(1, n)
