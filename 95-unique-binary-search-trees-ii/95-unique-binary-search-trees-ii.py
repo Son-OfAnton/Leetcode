@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+        memo = defaultdict(list)
         def helper(start, end):
             if start > end:
                 return [None]
@@ -13,8 +14,16 @@ class Solution:
             unique_BST = []
 
             for index in range(start, end + 1):
-                left_subtree_candidates = helper(start, index - 1)
-                right_subtree_candidates = helper(index + 1, end)
+                if (start, index - 1) not in memo:
+                    left_subtree_candidates = helper(start, index - 1)
+                    memo[(start, index - 1)] = left_subtree_candidates
+                else:
+                    left_subtree_candidates = memo[(start, index - 1)]
+                if (index + 1, end) not in memo:
+                    right_subtree_candidates = helper(index + 1, end)
+                    memo[(index + 1, end)] = right_subtree_candidates
+                else:
+                    right_subtree_candidates = memo[(index + 1, end)]
 
                 for left_child in left_subtree_candidates:
                     for right_child in right_subtree_candidates:
