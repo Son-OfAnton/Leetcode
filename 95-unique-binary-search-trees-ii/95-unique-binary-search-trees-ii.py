@@ -10,8 +10,8 @@ class Solution:
             if not node:
                 return [None]
 
-            if len(node) == 1:
-                return [TreeNode(node[0])]
+            # if len(node) == 1:
+            #     return [TreeNode(node[0])]
 
             tree_comb = []
 
