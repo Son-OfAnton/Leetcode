@@ -7,6 +7,7 @@
 class Solution:
     def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
         memo = defaultdict(list)
+        
         def helper(start, end):
             if start > end:
                 return [None]
