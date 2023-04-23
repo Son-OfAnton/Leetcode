@@ -29,4 +29,5 @@ class Solution:
             return tree_comb
                         
         all_nodes = [i for i in range(1, n + 1)]
+        
         return helper(all_nodes)
