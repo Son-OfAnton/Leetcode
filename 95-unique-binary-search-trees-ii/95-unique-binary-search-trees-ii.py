@@ -10,23 +10,20 @@ class Solution:
             if not node:
                 return [None]
 
-            # if len(node) == 1:
-            #     return [TreeNode(node[0])]
-
-            tree_comb = []
+            unique_BST = []
 
             for index, num in enumerate(node):
-                left = helper(node[:index])
-                right = helper(node[index + 1:])
+                left_subtree_candidates = helper(node[:index])
+                right_subtree_candidates = helper(node[index + 1:])
 
-                for left_child in left:
-                    for right_child in right:
+                for left_child in left_subtree_candidates:
+                    for right_child in right_subtree_candidates:
                         root = TreeNode(num)
                         root.left = left_child
                         root.right = right_child
-                        tree_comb.append(root)
+                        unique_BST.append(root)
 
-            return tree_comb
+            return unique_BST
                         
         all_nodes = [i for i in range(1, n + 1)]
         
