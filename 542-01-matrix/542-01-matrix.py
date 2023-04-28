@@ -4,27 +4,24 @@ class Solution:
 
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         m, n = len(mat), len(mat[0])
-        dist_mat = [[None] * n for _ in range(m)]
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        queue = deque()
-        visited = set()
+        queue, visited = deque(), set()
 
         for i in range(m):
             for j in range(n):
                 if mat[i][j] == 0:
-                    queue.append((i, j))
                     visited.add((i, j))
-                    dist_mat[i][j] = 0
+                    queue.append((i, j, 0))
 
         while queue:
-            curr_rx, curr_cx = queue.popleft()
+            curr_row, curr_col, level = queue.popleft()
+            
+            for dr, dc in directions:
+                nr, nc = curr_row + dr, curr_col + dc
 
-            for dx, dy in directions:
-                new_rx, new_cx = curr_rx + dx, curr_cx + dy
-
-                if self.inbound(new_rx, new_cx, m, n) and (new_rx, new_cx) not in visited:
-                    dist_mat[new_rx][new_cx] = dist_mat[curr_rx][curr_cx] + 1
-                    queue.append((new_rx, new_cx))
-                    visited.add((new_rx, new_cx))
-
-        return dist_mat
+                if self.inbound(nr, nc, m, n) and (nr, nc) not in visited:
+                    mat[nr][nc] = level + 1
+                    queue.append((nr, nc, level + 1))
+                    visited.add((nr, nc))
+                    
+        return mat
