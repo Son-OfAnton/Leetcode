@@ -32,6 +32,8 @@ class Solution:
             
             if dist == k:
                 nodes_at_k_dist.append(node)
+            if dist > k:
+                break
 
             for neighbour in graph[node]:
                 if neighbour not in visited:
