@@ -23,10 +23,12 @@ class LockingTree:
 
 
     def locked_ancestor_exists(self, node: int) -> bool:
-        if self.lock_history[node] != None:
-            return True
-        if self.parent[node] != -1:
-            return self.locked_ancestor_exists(self.parent[node])
+        parent = self.parent[node]
+        
+        while parent != -1:
+            if self.lock_history[parent] != None:
+                return True
+            parent = self.parent[parent]
 
         return False
 
@@ -57,8 +59,8 @@ class LockingTree:
         
         if not flag:
             return False
-
-        if self.parent[num] != -1 and self.locked_ancestor_exists(self.parent[num]):
+        
+        if self.locked_ancestor_exists(num):
             return False
 
         self.unlock_descendants(num)
