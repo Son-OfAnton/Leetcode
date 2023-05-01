@@ -9,21 +9,21 @@ class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
         graph = defaultdict(list)
 
-        def preorder(node, parent=None):
+        def preorder_tree_to_graph(node, parent=None):
             if not node:
                 return
 
-            if parent:
+            if parent:  
                 graph[node.val].append(parent.val)
             if node.left:
                 graph[node.val].append(node.left.val)
             if node.right:
                 graph[node.val].append(node.right.val)
                 
-            preorder(node.left, node)
-            preorder(node.right, node)
+            preorder_tree_to_graph(node.left, node)
+            preorder_tree_to_graph(node.right, node)
 
-        preorder(root)
+        preorder_tree_to_graph(root)
         nodes_at_k_dist = []
         queue, visited = deque([(target.val, 0)]), set([target.val])
 
