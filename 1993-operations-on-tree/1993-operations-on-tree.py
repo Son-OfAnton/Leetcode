@@ -51,13 +51,10 @@ class LockingTree:
         if self.lock_history[num] != None:
             return False
         
-        flag = False
         for child in self.graph[num]:
             if self.locked_descendant_exists(child):
-                flag = True
                 break
-        
-        if not flag:
+        else:
             return False
         
         if self.locked_ancestor_exists(num):
