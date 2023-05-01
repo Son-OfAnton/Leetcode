@@ -18,7 +18,7 @@ class Solution:
                 new_row, new_col = row + dr, col + dc
 
                 if inbound(new_row, new_col) and maze[new_row][new_col] == '.':
-                    if [new_row, new_col] != entrance and on_border(new_row, new_col):
+                    if on_border(new_row, new_col):
                         return steps + 1
 
                     queue.append((new_row, new_col, steps + 1))
