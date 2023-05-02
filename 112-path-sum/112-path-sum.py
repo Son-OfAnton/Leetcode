@@ -9,8 +9,8 @@ class Solution:
         if not root:
             return False
 
-        def is_leaf(node):
-            return not node.left and not node.right
+        def is_leaf(parent):
+            return not parent.left and not parent.right
 
         def preorder(node, total, parent):
             res = False
