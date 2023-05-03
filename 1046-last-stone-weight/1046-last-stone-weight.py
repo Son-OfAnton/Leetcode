@@ -11,8 +11,6 @@ class Solution:
             if x != y:
                 heappush(stones, y - x)
             _heapify_max(stones)
-        if stones:
-            return _heappop_max(stones) 
-        else:
-            return 0
+            
+        return stones[0] if stones else 0
             
