@@ -8,7 +8,7 @@ class Solution:
                 graph[ingredient].append(recipe)
                 indegree[recipe] += 1
         
-        # recipes = set(recipes)
+        recipes = set(recipes)
         queue = deque(supplies)
         cookable_foods = []
 
