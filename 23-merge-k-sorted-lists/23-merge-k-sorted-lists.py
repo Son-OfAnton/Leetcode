@@ -7,8 +7,8 @@ class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         heap = []
 
-        for _list in lists:
-            curr = _list
+        for head in lists:
+            curr = head
 
             while curr:
                 heappush(heap, curr.val)
