@@ -33,10 +33,8 @@ class Solution:
         # now doing multi-source bfs from 
         # all lands in island_1 and return 
         # the first land which is not in island_1
-        queue = deque()
-        for land in island_1:
-            queue.append((land, 0))
-
+        queue = deque((land, 0) for land in island_1)
+    
         while queue:
             land, dist = queue.popleft()
             row, col = land
