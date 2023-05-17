@@ -32,12 +32,12 @@ class Disjoint_set:
 
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        union_find = Disjoint_set(n)
+        ds = Disjoint_set(n)
 
         for u, v in edges:
-            union_find.union(u, v)
+            ds.union(u, v)
 
-        return union_find.connected(source, destination)
+        return ds.connected(source, destination)
         
 
 
