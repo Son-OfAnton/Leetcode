@@ -36,7 +36,7 @@ class Solution:
         for i in range(len(s1)):
             ds.union(ord(s1[i]) - 97, ord(s2[i]) - 97)
             
-        groups = [set() for _ in range(26)]
+        groups = defaultdict(set)
         
         for i in range(26):
             groups[(ds.rep[i])].add(chr(i + 97))
