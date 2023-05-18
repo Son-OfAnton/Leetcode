@@ -1,7 +1,9 @@
 class Union_find:
     def __init__(self, n):
-        self.rep = [[i, float('inf')] for i in range(n)]
-        self.size = [1 for _ in range(n)]
+        self.rep, self.size = [], []
+        for i in range(n):
+            self.rep.append([i, float('inf')]) 
+            self.size.append(1) 
 
     def find(self, x: int) -> int:
         parent = x
