@@ -39,8 +39,9 @@ class Solution:
         res = float('inf')
         one_parent = uf.find(1)
         for i in range(1, n + 1):
-            if one_parent == uf.find(i):
-                res = min(res, uf.rep[uf.find(i)][1])
+            i_parent = uf.find(i)
+            if one_parent == i_parent:
+                res = min(res, uf.rep[i_parent][1])
 
         return res 
 
