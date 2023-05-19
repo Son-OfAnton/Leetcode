@@ -25,9 +25,6 @@ class Union_find:
         self.rep[smaller] = greater
         self.size[greater] +=  self.size[smaller]
 
-    def connected(self, x: int, y: int) -> bool:
-        return self.find(x) == self.find(y)
-        
 class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
         n = len(stones)
