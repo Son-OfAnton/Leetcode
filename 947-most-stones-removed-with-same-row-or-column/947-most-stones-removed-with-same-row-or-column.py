@@ -40,7 +40,7 @@ class Solution:
 
         components = 0
         for stone in uf.rep:
-            if stone == uf.find(stone):
+            if stone == uf.rep[(stone)]:
                 components += 1
 
         return n - components
