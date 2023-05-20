@@ -42,20 +42,30 @@ class Solution:
                 edge_info.append([dist, points[i], points[j]])
 
 
-        edge_info.sort()
+        # edge_info.sort()
+        heapify(edge_info)
         uf = Union_find(points)
         min_cost = 0
 
         edge_count = 0
-        for cost, p_1, p_2 in edge_info:
+#         for cost, p_1, p_2 in edge_info:
+#             p_1, p_2 = tuple(p_1), tuple(p_2)
+#             if not uf.connected(p_1, p_2):
+#                 uf.union(p_1, p_2)
+#                 min_cost += cost
+#                 edge_count += 1
+
+#             if edge_count == n - 1:
+#                 break
+
+        while n - 1 > 0:
+            cost, p_1, p_2 = heappop(edge_info)
             p_1, p_2 = tuple(p_1), tuple(p_2)
+            
             if not uf.connected(p_1, p_2):
                 uf.union(p_1, p_2)
-                min_cost += cost
-                edge_count += 1
-
-            if edge_count == n - 1:
-                break
+                min_cost += cost                
+                n -= 1
 
         return min_cost
 
