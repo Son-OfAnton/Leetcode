@@ -17,10 +17,12 @@ class Union_find:
         x_rep = self.find(x)
         y_rep = self.find(y)
 
-        greater = x_rep if self.rank[x_rep] >= self.rank[y_rep] else y_rep
-        smaller = y_rep if greater == x_rep else x_rep
-        self.rep[smaller] = greater
-        self.rank[greater] +=  self.rank[smaller]
+        if self.rank[x_rep] < self.rank[y_rep]:
+            self.rep[x_rep] = y_rep
+            self.rank[y_rep] += self.rank[x_rep]
+        else:
+            self.rep[y_rep] = x_rep
+            self.rank[x_rep] += self.rank[y_rep]
 
     def connected(self, x: int, y: int) -> bool:
         return self.find(x) == self.find(y)
