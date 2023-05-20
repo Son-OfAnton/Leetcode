@@ -68,6 +68,8 @@ class Solution:
                 n -= 1
 
         return min_cost
+    
+# use heap for better performance than sorting
 
 
 
