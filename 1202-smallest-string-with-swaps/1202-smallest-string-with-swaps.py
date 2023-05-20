@@ -1,7 +1,7 @@
 class Union_find:
     def __init__(self, n):
         self.rep = {i: i for i in range(n)}
-        self.size = defaultdict(lambda: 1)
+        self.rank = defaultdict(lambda: 1)
 
     def find(self, x: int) -> int:
         parent = x
@@ -20,10 +20,13 @@ class Union_find:
         x_rep = self.find(x)
         y_rep = self.find(y)
 
-        greater = x_rep if self.size[x_rep] >= self.size[y_rep] else y_rep
-        smaller = y_rep if greater == x_rep else x_rep
-        self.rep[smaller] = greater
-        self.size[greater] +=  self.size[smaller]
+        if self.rank[x_rep] < self.rank[y_rep]:
+            self.rep[x_rep] = y_rep
+            self.rank[y_rep] += self.rank[x_rep]
+        else:
+            self.rep[y_rep] = x_rep
+            self.rank[x_rep] += self.rank[y_rep]
+
 
     def connected(self, x: int, y: int) -> bool:
         return self.find(x) == self.find(y)
