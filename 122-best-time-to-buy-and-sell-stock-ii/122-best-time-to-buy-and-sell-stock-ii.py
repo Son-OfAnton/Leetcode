@@ -3,7 +3,7 @@ class Solution:
         min_price_till_now = float("inf")
         max_profit = 0
         
-        for i, price in enumerate(prices):
+        for price in prices:
             price_diff = price - min_price_till_now
 
             if price_diff > 0:
