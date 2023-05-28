@@ -1,9 +1,9 @@
 class Solution:
     def getMaximumGenerated(self, n: int) -> int:
-        if n == 0:
-            return 0
+        if n < 2:
+            return n
         
-        nums = [0] * (n + 1)
+        nums = [1] * (n + 1)
         nums[1] = 1
         maxx = 1
         
