@@ -5,6 +5,7 @@ class Solution:
         
         nums = [0] * (n + 1)
         nums[1] = 1
+        maxx = 1
         
         for i in range(2, n + 1):
             if i % 2 == 0:
@@ -13,6 +14,8 @@ class Solution:
             else:
                 half = (i - 1) // 2
                 nums[i] = nums[half] + nums[half + 1]
+            
+            maxx = max(maxx, nums[i])
                 
-        return max(nums)
+        return maxx
         
