@@ -1,9 +1,9 @@
 class Solution:
     def __init__(self):
-        self.memo = {1: 1, 2: 2}
+        self.dp = {1: 1, 2: 2}
 
     def climbStairs(self, n: int) -> int:        
-        if n not in self.memo:
-            self.memo[n]  = self.climbStairs(n - 1) + self.climbStairs(n - 2)
+        if n not in self.dp:
+            self.dp[n]  = self.climbStairs(n - 1) + self.climbStairs(n - 2)
             
-        return self.memo[n]
+        return self.dp[n]
