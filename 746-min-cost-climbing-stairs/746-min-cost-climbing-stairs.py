@@ -3,7 +3,7 @@ class Solution:
         n = len(cost)
         
         for stair in range(n - 3, -1, -1):
-            cost[stair] = cost[stair] + min(cost[stair + 1], cost[stair + 2])
+            cost[stair] += min(cost[stair + 1], cost[stair + 2])
             
         return min(cost[0], cost[1])
     
