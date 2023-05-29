@@ -5,15 +5,15 @@ class Solution:
 
         dp = defaultdict(int)
 
-        def helper(rx: int, cx: int) -> int:
+        def path_finder(rx: int, cx: int) -> int:
             if rx == m - 1 and cx == n - 1:
                 return 0
             if rx == m - 1 or cx == n - 1:
                 return 1
 
             if dp[(rx, cx)] == 0:
-                dp[(rx, cx)] = helper(rx + 1, cx) + helper(rx, cx + 1)
+                dp[(rx, cx)] = path_finder(rx + 1, cx) + path_finder(rx, cx + 1)
 
             return dp[(rx, cx)]
         
-        return helper(0, 0)
+        return path_finder(0, 0)
