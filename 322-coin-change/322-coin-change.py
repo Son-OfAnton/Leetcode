@@ -2,7 +2,6 @@ class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         dp = dict()
 
-        @cache
         def helper(curr_amount):        
             if curr_amount == 0:
                 return 0
