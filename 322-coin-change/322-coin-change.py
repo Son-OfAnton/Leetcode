@@ -1,3 +1,5 @@
+# Bottom-Up DP
+
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         dp = [float("inf")] * (amount + 1)
@@ -10,24 +12,12 @@ class Solution:
                     
         return dp[-1] if dp[-1] != float("inf") else -1
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         
 """   
+Top-Down DP
+
     dp = dict()
 
     def helper(curr_amount):        
