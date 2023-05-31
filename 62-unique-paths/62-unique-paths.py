@@ -2,8 +2,6 @@
 
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        # mat = [[0] * n for _ in range(m)]
-        # mat[-1][-1] = 1
         mat = defaultdict(int)
         mat[(m - 1, n - 1)] = 1
         
