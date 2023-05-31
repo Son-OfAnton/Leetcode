@@ -1,10 +1,9 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        n = len(nums)
         dp = dict()
         
         def backtrack(index, total):
-            if index == n:
+            if index == len(nums):
                 return 1 if total == target else 0
             
             if (index, total) not in dp:
