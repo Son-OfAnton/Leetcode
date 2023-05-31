@@ -1,5 +1,28 @@
+# Bottom-Up DP
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
+        mat = [[0] * n for _ in range(m)]
+        mat[-1][-1] = 1
+        
+        def path_getter(row, col):
+            if 0 <= row < m and 0 <= col < n:
+                return mat[row][col]
+            
+            return 0
+        
+        for row in range(m - 1, -1, -1):
+            for col in range(n - 1, -1, -1):
+                mat[row][col] += path_getter(row + 1, col) + path_getter(row, col + 1)
+                
+        return mat[0][0]
+                
+
+        
+        
+    """
+    Top-Down DP    
+        
         if m == 1 and n == 1:
             return 1
 
@@ -17,3 +40,5 @@ class Solution:
             return dp[(rx, cx)]
         
         return path_finder(0, 0)
+    
+    """
