@@ -1,6 +1,5 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        n = len(triangle)
         dp = defaultdict(int)
 
         for row in reversed(triangle):
