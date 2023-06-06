@@ -3,8 +3,8 @@ class Solution:
         dp = defaultdict(int)
 
         for row in reversed(triangle):
-            for i in range(len(row)):
-                dp[i] = row[i] + min(dp[i], dp[i + 1])
+            for i, curr in enumerate(row):
+                dp[i] = curr + min(dp[i], dp[i + 1])
 
         return dp[0]
 
