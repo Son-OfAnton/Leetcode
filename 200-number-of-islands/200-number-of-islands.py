@@ -7,18 +7,19 @@ class Solution:
             return 0 <= rx < m and 0 <= cx < n
         
         def dfs(rx, cx):
-            grid[rx][cx] = '0'
-            
-            for dr, dc in dirs:
-                nr, nc = rx + dr, cx + dc
+            stack = [(rx, cx)]
+    
+            while stack:
+                rx, cx = stack.pop()
+                grid[rx][cx] = '0'
                 
-                if in_bound(nr, nc) and grid[nr][nc] == '1':
-                    dfs(nr, nc)
+                for dr, dc in dirs:
+                    nr, nc = rx + dr, cx + dc
+                    if in_bound(nr, nc) and grid[nr][nc] == '1':
+                        stack.append((nr, nc))
                 
                 
-        visited = set()
         island_count = 0
-        
         for rx in range(m):
             for cx in range(n):
                 if grid[rx][cx] == '1':
