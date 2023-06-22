@@ -1,11 +1,13 @@
 class Solution:
     def longestSubsequence(self, arr: List[int], difference: int) -> int:
         longest_tracker = defaultdict(int)
+        longest = 1
         
         for num in arr:
             longest_tracker[num] = max(longest_tracker[num - difference] + 1, longest_tracker[num])
+            longest = max(longest, longest_tracker[num])
         
-        return max(longest_tracker.values())
+        return longest
     
     
 # At a given time of the iteration the current number can start 
