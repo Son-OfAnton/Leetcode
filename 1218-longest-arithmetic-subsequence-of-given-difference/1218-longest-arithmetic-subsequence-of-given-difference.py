@@ -12,5 +12,5 @@ class Solution:
     
 # At a given time of the iteration the current number can start 
 # an arithmetic sequence or extend an existing one. If the preceding 
-# numbers is not seen, it implies that the current number is the 
-# starter of the sequence else it has to extend it to maximize the length.
+# number hasn't been seen, it implies that the current number is a 
+# starter of a sequence else it has to extend it to maximize the length.
