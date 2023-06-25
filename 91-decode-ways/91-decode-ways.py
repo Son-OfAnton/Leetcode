@@ -1,7 +1,6 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
         n = len(s)
-        valid = {str(num) for num in range(1, 27)}
         dp = defaultdict(int)
 
         def helper(i):
@@ -15,7 +14,7 @@ class Solution:
                                         # it can't be single '0', b/c it was
                                         # taken cared
                 
-                if i + 1 < n and s[i:i+2] in valid:
+                if i + 1 < n and int(s[i:i+2]) <= 26:
                     dp[i] += helper(i + 2)
 
             return dp[i]
