@@ -8,8 +8,8 @@ class Solution:
         top_4 = heapq.nlargest(4, nums)[::-1]
         min_diff = float('inf')
 
-        for i in range(4):
-            min_diff = min(min_diff, top_4[i] - bottom_4[i])
+        for big, small in zip(top_4, bottom_4):
+            min_diff = min(min_diff, big - small)
             
         return min_diff
         
