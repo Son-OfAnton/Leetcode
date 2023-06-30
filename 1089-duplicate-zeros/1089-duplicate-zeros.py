@@ -14,5 +14,5 @@ class Solution:
                 zero_count -= 1
                 
                 if i + zero_count < n:
-                    arr[i + zero_count] = arr[i]
+                    arr[i + zero_count] = 0
                 
