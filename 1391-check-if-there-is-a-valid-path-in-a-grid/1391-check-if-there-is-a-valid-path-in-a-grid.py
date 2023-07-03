@@ -25,7 +25,7 @@ class Solution:
             for dr, dc in allowed[pipe1]:
                 way = (dr, dc)
                 nr, nc = r + dr, c + dc
-                if way in allowed[pipe1] and inbound(nr, nc) and (nr, nc) not in seen:
+                if inbound(nr, nc) and (nr, nc) not in seen:
                     pipe2 = grid[nr][nc]
 
                     if pipe2 in allowed[pipe1][way]:
