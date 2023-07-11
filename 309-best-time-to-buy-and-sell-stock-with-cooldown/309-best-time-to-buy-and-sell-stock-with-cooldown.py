@@ -9,12 +9,12 @@ class Solution:
             if (i, has_stock) in dp:
                 return dp[(i, has_stock)]
             
-            if not has_stock:
-                buy = helper(i+1, not has_stock) - prices[i]
+            if not has_stock:                    
+                buy = helper(i+1, True) - prices[i]
                 cooldown = helper(i+1, has_stock)
                 dp[(i, has_stock)] = max(buy, cooldown)
             else:
-                sell = helper(i+2, not has_stock) + prices[i]
+                sell = helper(i+2, False) + prices[i]
                 cooldown = helper(i+1, has_stock)
                 dp[(i, has_stock)] = max(sell, cooldown)
             
