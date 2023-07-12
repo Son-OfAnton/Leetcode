@@ -18,9 +18,10 @@ class Solution:
                 nr, nc = rx + dr, cx + dc
                 if inbound(nr, nc):
                     prob += helper(nr, nc, moves + 1)
-                
-                dp[(rx, cx, moves)] = prob
+            
+            prob /= 8
+            dp[(rx, cx, moves)] = prob
 
             return prob
 
-        return helper(row, column, 0) / (8**k)
+        return helper(row, column, 0) 
