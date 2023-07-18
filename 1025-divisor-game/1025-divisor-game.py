@@ -1,6 +1,6 @@
 class Solution:
     def divisorGame(self, n: int) -> bool:
-        return not n & 1
+        return n % 2 == 0
     
     
 # whoever got an even number can always choose 1 as a divisor
