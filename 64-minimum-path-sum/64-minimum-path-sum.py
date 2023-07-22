@@ -2,12 +2,10 @@ class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
         dp = [[0]*n for _ in range(m)]
-        # dp[(m-1,n-1)] = grid[m-1][n-1]
         dp[m-1][n-1] = grid[m-1][n-1]
         
         def path_getter(r, c):
             if 0 <= r < m and 0 <= c < n:
-                # return dp[(r,c)]
                 return dp[r][c]
             return float('inf')
         
