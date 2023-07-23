@@ -7,10 +7,9 @@ class Solution:
         
         exp = 0
         while num:
-            x = num % 10
+            num, x = divmod(num, 10)
             x *= 10**exp
             exp += 1
-            num //= 10
             
             if x == 0:
                 continue
