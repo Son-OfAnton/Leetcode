@@ -17,7 +17,7 @@ class Solution:
             if x in _map:
                 roman.append(_map[x])
             elif x < 5:
-                roman.extend(['I']*x)
+                roman.extend(['I'] * x)
             elif x < 10:
                 roman.extend(['I'] * (x - 5))
                 roman.append('V')
