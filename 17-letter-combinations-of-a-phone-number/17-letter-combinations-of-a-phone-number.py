@@ -8,17 +8,18 @@ class Solution:
                       '7':"pqrs", '8':"tuv", '9':"wxyz"}
                 
         all_comb = []
+        stack = [("", digits)]
         
-        def backtrack(curr_comb, digits_slice):
-            if not digits_slice:
-                all_comb.append(curr_comb)
-                return
+        while stack:
+            curr_comb, digits_slide = stack.pop()
             
-            for letter in keypad_map[digits_slice[0]]:
-                backtrack(curr_comb + letter, digits_slice[1:])
+            if not digits_slide:
+                all_comb.append(curr_comb)
+                continue
                 
-        backtrack("", digits)
-        
+            for letter in keypad_map[digits_slide[0]]:
+                stack.append((curr_comb + letter, digits_slide[1:]))
+                
         return all_comb
     
     
