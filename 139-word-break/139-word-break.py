@@ -7,13 +7,16 @@ class Solution:
             
         def word_checker(start):
             if dp[start] == None:
-                for end in range(start + 1, n + 1):  
+                for end in range(start+1, n+1):  
                     word = s[start:end] 
+                    
                     if word in word_set and word_checker(end):
                         dp[start] = True
+                        
                         return True
                     
                 dp[start] = False
+                
                 return False
             
             return dp[start]
