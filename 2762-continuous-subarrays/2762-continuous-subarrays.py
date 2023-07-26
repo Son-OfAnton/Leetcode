@@ -1,23 +1,22 @@
 class Solution:
     def continuousSubarrays(self, nums: List[int]) -> int:
         n = len(nums)
-        dp = dict()
+        dp = defaultdict(int)
         
         def helper(i, _min, _max):
             if i >= n:
                 return 0
-            if (i, _min, _max) not in dp:
+            if (i, _min, _max) in dp:
+                return dp[(i, _min, _max)]
+            else:
                 _min = min(_min, nums[i])
                 _max = max(_max, nums[i])
-                
+
                 if _max - _min <= 2:
                     dp[(i, _min, _max)] = helper(i + 1, _min, _max) + 1
-                else: 
-                    dp[(i, _min, _max)] = 0
-                
-                return dp[(i, _min, _max)]
-            
+                    
             return dp[(i, _min, _max)]
+            
         
         cont_sub = 0
         for i in range(n):
