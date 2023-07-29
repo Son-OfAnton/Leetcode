@@ -9,12 +9,10 @@ class Solution:
         pairs = []
 
         def dfs(curr, father, depth):
-            if not curr: 
+            if not curr or len(pairs) == 2: 
                 return
             if curr.val == x or curr.val == y:
                 pairs.append((father, depth))
-            if len(pairs) == 2:
-                return
             dfs(curr.left, curr, depth+1)
             dfs(curr.right, curr, depth+1)
 
