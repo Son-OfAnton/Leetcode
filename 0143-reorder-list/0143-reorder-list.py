@@ -16,23 +16,16 @@ class Solution:
             curr = curr.next
             
         top = None
-        res_head = queue[0]
         while queue:
             a = queue.popleft()
-            if queue:
-                b = queue.pop()
-            else:
-                b = None
+            b = None if not queue else queue.pop()
+            
+            if b:
+                b.next = None
+            a.next = b
             if top:
                 top.next = a
-            if b:
-                a.next = b
-                top = b
-            else:
-                top = a
-            top.next = None
+            top = b
             
-        return res_head
             
-        # for node in queue:
-        #     print(node.val)
+        
