@@ -14,4 +14,9 @@ class Solution:
                         return True
                     
         return dp[n-1]
+    
+# We will take every possible jump from every reachable spot. 
+# In this manner if we arrive at the last spot, we immedietly 
+# return True else the dp table tells us that the last spot is 
+# unreachable when we exit the loop.
                         
