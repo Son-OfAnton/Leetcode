@@ -10,7 +10,7 @@ class Solution:
         if root:
             queue.append(root)
         zigzag_traversal = []
-        flag = 1
+        flag = True
         
         while queue:
             curr_level = []
@@ -26,7 +26,7 @@ class Solution:
             if not flag:
                 curr_level.reverse() 
             zigzag_traversal.append(curr_level)
-            flag ^= 1
+            flag ^= True
             
         return zigzag_traversal
             
