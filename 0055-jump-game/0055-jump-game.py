@@ -19,4 +19,16 @@ class Solution:
 # In this manner if we arrive at the last spot, we immedietly 
 # return True else the dp table tells us that the last spot is 
 # unreachable when we exit the loop.
+
+
+"""
+n = len(nums)
+start = n - 1
+
+for i in range(n-2, -1, -1):
+    if i + nums[i] >= start:
+        start = i
+
+return start == 0
+"""
                         
