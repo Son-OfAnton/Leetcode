@@ -1,30 +1,40 @@
 class Solution:
     def minJumps(self, arr: List[int]) -> int:
-        pos = collections.defaultdict(lambda: [True])
-
-        for i, x in reversed(list(enumerate(arr))):
-            pos[x].append(i)
-
+        def check_and_jump(curr_idx, queue, visited):
+            if curr_idx not in visited:
+                queue.append(curr_idx)
+                visited.add(curr_idx)
+                
         n = len(arr)
-        res = list(range(n-1, -1, -1))
-        q = collections.deque()
+        value_map = defaultdict(list)
+        
+        for i, val in enumerate(arr):
+            value_map[val].append(i)
 
-        for k in range(n-1, -1, -1):
-            q.append(k)
-            while q:
-                i = q.popleft()
-                if pos[arr[i]][0]: 
-                    pos[arr[i]][0] = False
+        queue, visited = deque([0]), set([0])
+        visited.add(0)
+        jumps = 0
 
-                    for j in pos[arr[i]][1:]:
-                        res[j] = min(res[j], res[i]+1)
-                        q.append(j)
+        while queue:
+            for _ in range(len(queue)):
+                curr_idx = queue.popleft()
+                prev, next = curr_idx - 1, curr_idx + 1
 
-                    for j in pos[arr[i]][1:]:
-                        if j > 0:
-                            res[j-1] = min(res[j-1], res[j]+1)
-                            q.append(j-1)
-                        if j < n-1:
-                            res[j+1] = min(res[j+1], res[j]+1)
-                            q.append(j+1)
-        return res[0]
+                if curr_idx == n - 1:
+                    return jumps
+                
+                if prev >= 0:
+                    check_and_jump(prev, queue, visited)
+                if next < n:
+                    check_and_jump(next, queue, visited)
+                
+
+                for nbr_idx in value_map[arr[curr_idx]]:
+                    if nbr_idx not in visited:
+                        queue.append(nbr_idx)
+                        visited.add(nbr_idx)
+                        
+                value_map[arr[curr_idx]].clear()
+            jumps += 1
+
+                
