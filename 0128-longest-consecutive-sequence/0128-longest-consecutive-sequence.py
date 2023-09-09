@@ -1,7 +1,7 @@
 class UnionFind:
     def __init__(self, arr):
         self.rep = {num: num for num in arr}
-        self.size = {num: 1 for num in arr}
+        self.size = defaultdict(lambda: 1)
     def find(self, x):
         if x != self.rep[x]:
             self.rep[x] = self.find(self.rep[x])
@@ -29,5 +29,7 @@ class Solution:
         for num in num_set:
             if num - 1 in num_set:
                 uf.union(num, num-1)
-
-        return max(uf.size.values())
+                
+        if uf.size.values():
+            return max(uf.size.values())
+        return 1
