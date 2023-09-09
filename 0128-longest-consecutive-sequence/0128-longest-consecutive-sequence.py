@@ -23,10 +23,9 @@ class Solution:
             return 0
         n = len(nums)
         uf = UnionFind(nums)
-        num_set = set(nums)
 
-        for num in num_set:
-            if num - 1 in num_set:
+        for num in uf.rep:
+            if num - 1 in uf.rep:
                 uf.union(num, num-1)
                 
         if uf.size.values():
