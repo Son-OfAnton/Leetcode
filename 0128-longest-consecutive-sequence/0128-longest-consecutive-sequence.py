@@ -24,7 +24,8 @@ class Solution:
         n = len(nums)
         uf = UnionFind(nums)
 
-        for num in uf.rep:
+        for num in uf.rep:      # uf.rep is used like a set here
+                                # of nums to avoid duplicate
             if num - 1 in uf.rep:
                 uf.union(num, num-1)
                 
