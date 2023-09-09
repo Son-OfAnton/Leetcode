@@ -2,6 +2,7 @@ class UnionFind:
     def __init__(self, arr):
         self.rep = {num: num for num in arr}
         self.size = defaultdict(lambda: 1)
+        
     def find(self, x):
         if x != self.rep[x]:
             self.rep[x] = self.find(self.rep[x])
