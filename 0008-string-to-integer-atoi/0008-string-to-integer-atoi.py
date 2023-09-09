@@ -34,9 +34,7 @@ class Solution:
             return 0
         parsed_num = parity * int(''.join(num))
         big_num = 2**31
-        if parsed_num >= big_num:
-            parsed_num = big_num - 1
-        elif parsed_num < -big_num:
-            parsed_num = -big_num
+        parsed_num = min(parsed_num, big_num - 1)
+        parsed_num = max(parsed_num, -big_num)
 
         return parsed_num
