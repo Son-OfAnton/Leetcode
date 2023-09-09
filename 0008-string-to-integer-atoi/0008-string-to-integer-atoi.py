@@ -1,10 +1,8 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
         n = len(s)
-        num = []
-        parity = 1
-        digit_found = False
-        parity_found = False
+        num, parity = 0, 1
+        digit_found = parity_found = False
         i = 0
 
         while i < len(s):
@@ -20,7 +18,7 @@ class Solution:
             while i < n and s[i].isdigit():
                 space_only = False
                 digit_found = True
-                num.append(s[i])
+                num = num*10 + int(s[i])
                 i += 1
                 
             if i < n and digit_found and not s[i].isdigit():
@@ -32,9 +30,10 @@ class Solution:
         
         if not digit_found:
             return 0
-        parsed_num = parity * int(''.join(num))
-        big_num = 2**31
-        parsed_num = min(parsed_num, big_num - 1)
-        parsed_num = max(parsed_num, -big_num)
 
-        return parsed_num
+        num *= parity
+        big_num = 2**31
+        num = min(num, big_num - 1)
+        num = max(num, -big_num)
+
+        return num
