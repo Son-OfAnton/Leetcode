@@ -13,11 +13,9 @@ class UnionFind:
         y_rep = self.find(y)
 
         if self.size[x_rep] < self.size[y_rep]:
-            self.rep[x_rep] = y_rep
-            self.size[y_rep] += self.size[x_rep]
-        else:
-            self.rep[y_rep] = x_rep
-            self.size[x_rep] += self.size[y_rep]
+            x_rep, y_rep = y_rep, x_rep
+        self.rep[y_rep] = x_rep
+        self.size[x_rep] += self.size[y_rep]
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
