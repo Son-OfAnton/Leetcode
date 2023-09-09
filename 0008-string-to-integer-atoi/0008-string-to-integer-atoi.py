@@ -22,15 +22,14 @@ class Solution:
                 digit_found = True
                 num.append(s[i])
                 i += 1
+                
             if i < n and digit_found and not s[i].isdigit():
                 break
-            
             if not digit_found and s[i] not in '+-' and s[i] != ' ':
                 return 0
             
             i += 1
         
-        # print(num)
         if not digit_found:
             return 0
         parsed_num = parity * int(''.join(num))
