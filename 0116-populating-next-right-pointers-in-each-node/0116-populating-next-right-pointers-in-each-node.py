@@ -10,21 +10,54 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        def connectTwoNodes(left_child, right_child):
-            if not left_child or not right_child:
-                return
-
-            left_child.next = right_child
-
-            connectTwoNodes(left_child.left, left_child.right)
-            connectTwoNodes(right_child.left, right_child.right)
-            connectTwoNodes(left_child.right, right_child.left)
-
         if not root:
             return None
-
-        connectTwoNodes(root.left, root.right)
+        
+        left_most = root
+        
+        while left_most:
+            curr = left_most
+            prev = None
+            
+            while curr:
+                if curr.left:
+                    if prev:
+                        prev.next = curr.left
+                    prev = curr.left
+                
+                if curr.right:
+                    if prev:
+                        prev.next = curr.right
+                    prev = curr.right
+                
+                curr = curr.next
+                
+            left_most = left_most.left
+                
         return root
+
+
+        
+        
+        
+        
+"""
+def connectTwoNodes(left_child, right_child):
+    if not left_child or not right_child:
+        return
+
+    left_child.next = right_child
+
+    connectTwoNodes(left_child.left, left_child.right)
+    connectTwoNodes(right_child.left, right_child.right)
+    connectTwoNodes(left_child.right, right_child.left)
+
+if not root:
+    return None
+
+connectTwoNodes(root.left, root.right)
+return root
+"""
 
 """
 if not root: 
