@@ -7,11 +7,11 @@ class Solution:
 
             root_val = preorder[pre_start]
             root = TreeNode(root_val)
-            root_index = inorder_idx_map[root_val]
-            left_size = root_index - in_start
+            root_idx = inorder_idx_map[root_val]
+            left_size = root_idx - in_start
             
-            root.left = build_tree(pre_start+1, pre_start+left_size, in_start, root_index-1)
-            root.right = build_tree(pre_start+left_size+1, pre_end, root_index+1, in_end)
+            root.left = build_tree(pre_start+1, pre_start+left_size, in_start, root_idx-1)
+            root.right = build_tree(pre_start+left_size+1, pre_end, root_idx+1, in_end)
             
             return root
 
