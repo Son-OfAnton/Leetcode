@@ -4,7 +4,7 @@ class Solution:
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
         left, right = 0, int(1e6) 
         
-        def binarySearch(maxEffort):
+        def binary_search(max_effort):
             visited = set()
             stack = [(0, 0)]
             
@@ -18,14 +18,14 @@ class Solution:
                 for dr, dc in directions:
                     nr, nc = r + dr, c + dc
                     if 0 <= nr < row and 0 <= nc < col and (nr, nc) not in visited:
-                        if abs(heights[nr][nc] - heights[r][c]) <= maxEffort:
+                        if abs(heights[nr][nc] - heights[r][c]) <= max_effort:
                             stack.append((nr, nc))
             
             return False
         
         while left < right:
             mid = (left + right) // 2
-            if binarySearch(mid):
+            if binary_search(mid):
                 right = mid
             else:
                 left = mid + 1
