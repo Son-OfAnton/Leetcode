@@ -2,7 +2,7 @@ class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
         row, col = len(heights), len(heights[0])
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        left, right = 0, int(1e6) 
+        left, right = 0, 10**6 
         
         def binary_search(max_effort):
             visited = set()
