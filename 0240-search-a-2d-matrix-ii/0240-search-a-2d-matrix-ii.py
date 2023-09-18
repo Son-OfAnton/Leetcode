@@ -14,10 +14,8 @@ class Solution:
 
             return False
 
-        found = False
         for row in matrix:
-            found |= binary_search(row)
-            if found:
+            if row[0] <= target and binary_search(row):
                 return True
 
         return False
