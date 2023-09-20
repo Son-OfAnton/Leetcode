@@ -10,15 +10,15 @@ class Solution:
         if not root or root == p or root == q:
             return root
         
-        found_on_left = self.lowestCommonAncestor(root.left, p, q)
-        found_on_right = self.lowestCommonAncestor(root.right, p, q)
+        ancestor_on_left = self.lowestCommonAncestor(root.left, p, q)
+        ancestor_on_right = self.lowestCommonAncestor(root.right, p, q)
 
-        if found_on_left and found_on_right:
+        if ancestor_on_left and ancestor_on_right:
              return root
-        if found_on_left:
-             return found_on_left
-        if found_on_right:
-             return found_on_right
+        if ancestor_on_left:
+             return ancestor_on_left
+        if ancestor_on_right:
+             return ancestor_on_right
         return None
 
 
