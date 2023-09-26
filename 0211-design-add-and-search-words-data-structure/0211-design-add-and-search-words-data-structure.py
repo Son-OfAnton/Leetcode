@@ -1,7 +1,6 @@
 class TrieNode:
     
-    def __init__(self, val='*'):
-        self.val = val
+    def __init__(self):
         self.children = dict()
         self.is_end = False
 
@@ -15,7 +14,7 @@ class WordDictionary:
         curr = self.root
         for char in word:
             if char not in curr.children:
-                curr.children[char] = TrieNode(char)
+                curr.children[char] = TrieNode()
             curr = curr.children[char]
         curr.is_end = True
         
