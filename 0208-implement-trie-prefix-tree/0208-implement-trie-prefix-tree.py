@@ -1,14 +1,10 @@
 class TrieNode:
-    def __init__(self, char='*'):
+    
+    def __init__(self):
         
-        self.char = char 
         self.is_end = False
         self.children = dict()
         
-    
-    def __str__(self):
-        return self.char
-    
 
 class Trie:
 
@@ -20,7 +16,7 @@ class Trie:
         curr = self.root
         for char in word:
             if char not in curr.children:
-                curr.children[char] = TrieNode(char)
+                curr.children[char] = TrieNode()
             curr = curr.children[char]
         curr.is_end = True
 
