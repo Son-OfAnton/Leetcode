@@ -41,7 +41,6 @@ class Solution:
             dictionary.insert(word)
 
         word_end_count = dict()
-        longest_word_built_by_others = None
         max_end_count = 0
         
         for word in words:
