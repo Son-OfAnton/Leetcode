@@ -1,3 +1,24 @@
+class Solution:
+    def lexicalOrder(self, n: int) -> List[int]:
+        def dfs(current, result):
+            if current > n:
+                return
+            if current != 0:  
+                result.append(current)
+            
+            for i in range(10):
+                if current * 10 + i > n:
+                    return
+                dfs(current * 10 + i, result)
+                
+        result = []
+        for i in range(1, 10):
+            dfs(i, result)
+        
+        return result
+
+"""
+
 class TrieNode:
     def __init__(self):
         self.children = [None] * 10
@@ -41,3 +62,5 @@ class Solution:
                 dfs(node, num)
 
         return lexically_sorted_nums
+
+"""
