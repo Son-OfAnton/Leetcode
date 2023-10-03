@@ -11,11 +11,15 @@ class Solution:
 
         while heap:
             dist, node = heappop(heap)
-            if node in visited:
+            # removing stale nodes, which the current dist in 
+            # heap is worse than what we already saved 
+            if distance[node] < dist:
                 continue
             visited.add(node)
             
             for nbr, wgt in graph[node]:
+                if nbr in visited:
+                    continue
                 new_dist = dist + wgt
                 if new_dist < distance[nbr]:
                     distance[nbr] = new_dist
