@@ -3,14 +3,12 @@ class Solution:
         n = len(nums)
         nums.sort(reverse=True)
         count = 0
-        triplets = []
         
-        for i in range(n-2):
+        for i in range(n):
             L, R = i + 1, n - 1
             
             while L < R:
                 if nums[L] + nums[R] > nums[i]:
-                    triplets.append([nums[R], nums[L], nums[i]])
                     count += R - L
                     L += 1
                 else:
