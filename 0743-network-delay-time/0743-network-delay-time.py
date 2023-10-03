@@ -12,7 +12,11 @@ class Solution:
         while heap:
             dist, node = heappop(heap)
             # removing stale nodes, which the current dist in 
-            # heap is worse than what we already saved 
+            # heap is worse than what we already saved. 
+            # The following if condition is not necessary 
+            # if we have used indexed heap, which updates
+            # a node in O(logn) time instead of adding 
+            # duplicate nodes.
             if distance[node] < dist:
                 continue
             visited.add(node)
