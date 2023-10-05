@@ -2,24 +2,24 @@ class Solution:
     def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
         ''' Floyed-Warshal '''
         
-        dist = [[math.inf]*numCourses for _ in range(numCourses)]
+        is_pre = [[False]*numCourses for _ in range(numCourses)]
 
         for pre, course in prerequisites:
-            dist[pre][course] = 1
+            is_pre[pre][course] = True
 
-        for i in range(numCourses):
-            dist[i][i] = 0
-        
         for k in range(numCourses):
             for i in range(numCourses):
                 for j in range(numCourses):
-                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+                    is_pre[i][j] |= is_pre[i][k] & is_pre[k][j]
 
-        res = []
-        for pre, course in queries:
-            res.append(False if dist[pre][course] == math.inf else True)
+        res = [is_pre[pre][course] for pre, course in queries]
 
         return res
+
+
+
+
+
         
 '''
 
