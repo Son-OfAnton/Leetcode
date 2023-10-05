@@ -6,7 +6,7 @@ class Solution:
             graph[dest].append((src, prob))
 
         heap = [[-1, start_node]]
-        prob_arr = [0]*n
+        prob_arr = defaultdict(int)
         visited = set()
 
         while heap:
