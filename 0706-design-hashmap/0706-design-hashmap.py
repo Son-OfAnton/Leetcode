@@ -2,22 +2,18 @@ class MyHashMap:
 
     def __init__(self):
         self.hash_table = [None]*(pow(10, 6) + 1)
-        self.MOD = pow(10, 9) + 7
 
     def put(self, key: int, value: int) -> None:
-        hash_key = key % self.MOD
-        self.hash_table[hash_key] = value
+        self.hash_table[key] = value
 
     def get(self, key: int) -> int:
-        hash_key = key % self.MOD
-        if self.hash_table[hash_key] == None:
+        if self.hash_table[key] == None:
             return -1
         else:
-            return self.hash_table[hash_key]
+            return self.hash_table[key]
         
 
     def remove(self, key: int) -> None:
-        hash_key = key % self.MOD
         self.hash_table[key] = None
         
 
