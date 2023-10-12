@@ -8,7 +8,7 @@ class Solution:
                 for c in range(n):
                     nr, nc = r + dr, c + dc
                     if 0 <= nr < n and 0 <= nc < n \
-                        and img2[r][c] == 1 and img1[nr][nc] == 1:
+                        and img2[r][c] == img1[nr][nc] == 1:
                         shifts += 1
                         
             return shifts
