@@ -13,9 +13,7 @@ class Solution:
             if not curr:
                 return 'N'
             
-            key = [str(curr.val), ',']
-            key.extend([preorder(curr.left), ','])
-            key.extend([preorder(curr.right), ','])
+            key = [str(curr.val), '/', preorder(curr.left), '/', preorder(curr.right)]
             key = ''.join(key)
             hash_map[key].append(curr)
             
