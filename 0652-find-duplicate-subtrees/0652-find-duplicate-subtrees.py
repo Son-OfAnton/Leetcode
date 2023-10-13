@@ -4,28 +4,32 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
         
-        def preorder(curr):
+        def postorder(curr):
             nonlocal duplicates
             
             if not curr:
                 return 'N'
             
-            key = [str(curr.val), '/', preorder(curr.left), '/', preorder(curr.right)]
+            left_key = postorder(curr.left)
+            right_key = postorder(curr.right)
+            key = [str(curr.val), '/', left_key, '/', right_key]
             key = ''.join(key)
-            hash_map[key].append(curr)
+            
+            if key in hash_map:
+                hash_map[key] += 1
+                if hash_map[key] == 2:
+                    duplicates.append(curr)
+            else:
+                hash_map[key] = 1
             
             return key
-            
-
-        duplicates = []
-        hash_map = defaultdict(list)
-        preorder(root)
         
-        for key, sub_roots in hash_map.items():
-            if len(sub_roots) > 1:
-                duplicates.append(sub_roots[0])
+        duplicates = []
+        hash_map = dict()
+        postorder(root)
         
         return duplicates
