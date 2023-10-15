@@ -28,8 +28,6 @@ class Solution:
             flatten_recursive(left)
             flatten_recursive(right)
         
-        if not root:
-            return
         
         parent = None
         flatten_recursive(root)
