@@ -3,27 +3,27 @@ import random
 class RandomizedSet:
 
     def __init__(self):
-        self.table = dict()
+        self.idx = dict()
         self.keys = []
 
     def insert(self, val: int) -> bool:
-        if val in self.table:
+        if val in self.idx:
             return False
 
-        self.table[val] = len(self.keys)
+        self.idx[val] = len(self.keys)
         self.keys.append(val)
 
         return True
 
     def remove(self, val: int) -> bool:
-        if val not in self.table:
+        if val not in self.idx:
             return False
 
-        last_key, idx = self.keys[-1], self.table[val]
+        last_key, idx = self.keys[-1], self.idx[val]
         self.keys[idx] = last_key
-        self.table[last_key] = idx
+        self.idx[last_key] = idx
         self.keys.pop()
-        self.table.pop(val)
+        self.idx.pop(val)
 
         return True
 
