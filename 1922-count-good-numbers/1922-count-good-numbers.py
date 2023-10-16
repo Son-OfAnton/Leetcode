@@ -6,5 +6,7 @@ class Solution:
             return pow(5,half_n,MOD) * pow(4,half_n,MOD) % MOD
         else:
             return pow(5,half_n +1,MOD) * pow(4,half_n,MOD) % MOD
+        
+# Think in permutations
             
         
