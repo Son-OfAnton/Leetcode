@@ -8,8 +8,9 @@ class Solution:
                 return dp[i]
 
             for day_pass, cost in zip([1, 7, 30], costs):
+                ticket_expiry_day = days[i] + day_pass
                 j = i
-                while j < len(days) and days[j] < days[i] + day_pass:
+                while j < len(days) and days[j] < ticket_expiry_day:
                     j += 1
 
                 dp[i] = min(dp[i], cost + dfs(j))
