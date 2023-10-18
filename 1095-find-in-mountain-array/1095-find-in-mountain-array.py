@@ -34,8 +34,6 @@ class Solution:
         if mountain_arr.get(peak_idx) == target:
             return peak_idx
 
-        # print('>>> first')
-
         L, R = 0, peak_idx - 1
         while L < R:
             mid = L + (R - L) // 2
@@ -49,8 +47,6 @@ class Solution:
         if mountain_arr.get(L) == target:
             return L
 
-        # print('>>> second')
-
         L, R = peak_idx + 1, n - 1
         while L < R:
             mid = L + (R - L) // 2
@@ -63,8 +59,6 @@ class Solution:
 
         if mountain_arr.get(L) == target:
             return L
-
-        # print('>>> third')
 
         return -1
 
