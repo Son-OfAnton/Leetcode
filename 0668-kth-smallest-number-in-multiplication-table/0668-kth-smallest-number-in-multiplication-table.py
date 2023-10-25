@@ -1,18 +1,17 @@
 class Solution:
     def findKthNumber(self, m: int, n: int, k: int) -> int:
         def big_enough_to_be_kth(num):
-            smalls = 0
+            smallers = 0
             for i in range(1, m+1):
-                smalls += min(num // i, n)  # Finds the imaginary position
-                                            # of num in ith row. This means
-                                            # how many nums are smaller than
-                                            # it.
+                smallers += min(num // i, n)  # Finds the imaginary position
+                                              # of num in ith row. This means
+                                              # how many nums are smaller than
+                                              # it.
                                             
-                if smalls == 0:             # Beyond this we won't find any smaller
-                                            # or equal element.     
-                    break
+                if smallers == 0:             # Beyond this we won't find any smaller
+                    break                     # or equal element.     
 
-            return smalls >= k
+            return smallers >= k
 
         L, R = 1, m * n
 
