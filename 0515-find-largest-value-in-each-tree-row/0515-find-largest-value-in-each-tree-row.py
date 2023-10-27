@@ -19,6 +19,7 @@ class Solution:
             for _ in range(n):
                 curr = queue.popleft()
                 largest = max(largest, curr.val)
+                
                 if curr.left:
                     queue.append(curr.left)
                 if curr.right:
