@@ -12,7 +12,7 @@ class Solution:
 
             if node == None:
                 return
-            if node.val in to_delete:
+            if node.val in to_delete_set:
                 node_del = True
             elif par_del:
                 forest_roots.append(node)
@@ -29,7 +29,9 @@ class Solution:
 
         if not root:
             return []
+        to_delete_set = set(to_delete)
         forest_roots = []
+        
         if not dfs(root, False):
             forest_roots.append(root)
 
