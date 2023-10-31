@@ -5,22 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.res = []
-        
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root:
-            return
-        
-        self.inorderTraversal(root.left)
-        self.res.append(root.val)
-        self.inorderTraversal(root.right)
-    
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        self.inorderTraversal(root)
-
-        for index in range(1, len(self.res)):
-            if self.res[index] <= self.res[index - 1]:
+        
+        def dfs(node, MIN, MAX):
+            if not node:
+                return True
+            
+            if node.val <= MIN or node.val >= MAX:
                 return False
+            
+            return dfs(node.left, MIN, node.val) and dfs(node.right, node.val, MAX)
 
-        return True
+        
+        return dfs(root, -inf, inf)
