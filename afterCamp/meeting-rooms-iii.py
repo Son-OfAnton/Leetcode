@@ -8,13 +8,19 @@ class Solution:
         count = defaultdict(int)
 
         for start, end in meetings:
+            # Clear all meetings that are already completed
             while taken and taken[0][0] <= start:
-                _end, room = heappop(taken)
+                _, room = heappop(taken)
                 heappush(free, room)
 
+            # If an free rooms exist, use the one with 
+            # smaller index
             if free:
                 room = heappop(free)
                 heappush(taken, (end, room))
+            
+            # If all rooms are taken, schedule the incoming
+            # meeting right after the soonest completing time
             else:
                 time, room = heappop(taken)
                 heappush(taken, (time + end - start, room))
