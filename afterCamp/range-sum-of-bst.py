@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
-        nums = []
+        total = 0
         # dfs
         stack = [root]
 
@@ -14,13 +14,9 @@ class Solution:
             curr = stack.pop()
             if curr is None:
                 continue
+            if low <= curr.val <= high:
+                total += curr.val
             stack.append(curr.left)
-            nums.append(curr.val)
             stack.append(curr.right)
-
-        total = 0
-        for num in nums:
-            if low <= num <= high:
-                total += num
 
         return total 
