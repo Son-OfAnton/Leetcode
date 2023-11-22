@@ -21,5 +21,3 @@ class Solution:
             return right
         
 # very similar to 852. Peak Index in a Mountain Array
-            
-        
