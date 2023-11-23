@@ -2,9 +2,7 @@ class NumArray:
 
     def __init__(self, nums: List[int]):
         self.nums = [0]
-        self.size = len(nums)
-        
-        for i in range(self.size):
+        for i in range(len(nums)):
             self.nums.append(self.nums[-1] + nums[i])
 
     def sumRange(self, left: int, right: int) -> int:
