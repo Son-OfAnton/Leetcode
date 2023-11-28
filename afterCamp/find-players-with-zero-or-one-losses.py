@@ -5,9 +5,9 @@ class Solution:
         ans = []
         lost_once = []
 
-        for match in matches:
-            winners.add(match[0])
-            losers[match[1]] += 1
+        for winner, loser in matches:
+            winners.add(winner)
+            losers[loser] += 1
 
         for loser in losers.keys():
             if loser in winners:
