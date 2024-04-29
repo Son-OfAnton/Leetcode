@@ -33,9 +33,6 @@ class Solution:
             
             return curr_node
         
-#         print(node_map, children)
-        
-#         print(root.val, root.left.val, root.right.val)
             
         return build_tree(root)
             
