@@ -6,37 +6,23 @@
 #         self.right = right
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
-        node_map = defaultdict(lambda: [None, None])
+        node_map = dict()
         children = set()
         
         for parent, child, is_left in descriptions:
+            # check existance to not to change the object reference
+            if parent not in node_map: 
+                node_map[parent] = TreeNode(parent)
+            if child not in node_map: 
+                node_map[child] = TreeNode(child)
+            
             if is_left == 1:
-                node_map[parent][0] = child
+                node_map[parent].left = node_map[child]
             else:
-                node_map[parent][1] = child
+                node_map[parent].right = node_map[child]
+            
             children.add(child)
-        
+                
         for parent in node_map:
             if parent not in children:
-                root = TreeNode(parent, TreeNode(node_map[parent][0]), TreeNode(node_map[parent][1]))
-                break
-                
-        def build_tree(curr_node):
-            if not curr_node:
-                return
-            left_child, right_child = node_map[curr_node.val]
-            curr_node.left = TreeNode(left_child) if left_child else None 
-            curr_node.right = TreeNode(right_child) if right_child else None
-            
-            build_tree(curr_node.left)
-            build_tree(curr_node.right)
-            
-            return curr_node
-        
-            
-        return build_tree(root)
-            
-            
-        
-                
-        
+                return node_map[parent]
