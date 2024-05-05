@@ -1,6 +1,6 @@
 class Solution:
     def maximumRows(self, matrix: List[List[int]], numSelect: int) -> int:
-        ROW, COL = len(matrix), len(matrix[0])
+        COL = len(matrix[0])
         possible_cols = []
         
         def generate_col_comb(i, candidate_cols):
@@ -22,16 +22,16 @@ class Solution:
         generate_col_comb(0, [])
         
         def zero_rows(cols):
-            res = 0
+            curr_covered = 0
             for row in matrix:
                 for c in range(COL):
                     if row[c] == 1:
                         if c not in cols:
                             break
                 else:
-                    res += 1
+                    curr_covered += 1
                     
-            return res
+            return curr_covered
         
         
         covered = 0
