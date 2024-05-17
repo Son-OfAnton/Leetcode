@@ -7,13 +7,13 @@ class Solution:
 
             return sqrt((x1 - x2)**2 + (y1 - y2)**2)
             
-        total = 0
+        boomerand_count = 0
         for p1 in points:
-            count = Counter()
+            distance_count = Counter()
             for p2 in points:
-                count[distance(p1, p2)] += 1
+                distance_count[distance(p1, p2)] += 1
 
-            for v in count.values():
-                total += (v - 1)*v
+            for count in distance_count.values():
+                boomerand_count += (count - 1) * count
 
-        return total
+        return boomerand_count
